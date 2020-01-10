@@ -1,0 +1,186 @@
+\section{Multi-path Fading}
+		
+Fading is a phenomenon that occurs when the amplitude and phase of a radio signal change rapidly over a short period of time or travel distance \cite{fuqin}. Sky wave propagation, resulting from transmitted signals [in the high frequency band] being bent or refracted by the ionosphere, leads to the signal arriving at the receiver via different propagation paths at different delays.
+These signal components are called multi-path channels. The signal multi-path components generally have different carrier-phase offsets and, hence, they may add destructively at times, resulting in a phenomenon called signal fading \cite{Proakis}.
+
+In the analysis of communication system performance, the classical \gls{AWGN} channel, with statistically independent Gaussian noise samples corrupting data samples free of \gls{ISI}, is the usual starting point for developing basic performance results. An important source of performance degradation is thermal noise generated in the receiver. Another source of degradation stems from both natural and man-made sources of noise and interference that enter the receiving antenna. When modeling practical systems there is use of bandlimiting filters which is often the result of implementing a matched filter. Due to the bandlimiting and phase-distortion properties of filters, special signal design and equalization techniques may be required to mitigate the filter-induced \gls{ISI}.
+
+The model of free space treats the region between the transmit and receive antennas as being free of all objects that might absorb or reflect \gls{RF} energy. It also assumes that, within this region, the atmosphere behaves as a perfectly uniform and non-absorbing medium. Basically, in this idealized free-space model, the attenuation of \gls{RF} energy between the transmitter and receiver behaves according to an inverse-square law \cite{AWGN}. 
+
+$$L_{s}(d)= \left( \frac{4\pi d}{\lambda} \right)^2$$
+Where:
+ \begin{itemize}
+	\item $d$-distance between transmitter and receiver
+	\item $\lambda$- wavelength of propagating signal
+	\end{itemize}
+ 
+For this case of idealized propagation, received signal power is very predictable. For most practical channels, where signal propagation takes place in the atmosphere and near the ground, the free-space propagation model is inadequate to describe the channel behavior and predict system performance.
+ 
+In a wireless mobile communication system, a signal can travel from transmitter to receiver over multiple reflective paths. This phenomenon, referred to as multi-path propagation, can cause fluctuations in the received
+signal’s amplitude, phase, and angle of arrival, giving rise to the terminology multi-path fading \cite{AWGN}.
+  
+In a multi-path channel, the received signal consists of a large number of plane waves, whose complex low-pass signal can be modeled as a Gaussian random process \cite{fuqin}.
+$$ \tilde{r}(t)=r_{1}(t)+jr_{Q}(t) $$
+\subsubsection{Fading Channel Characteristics} 
+A fading channel manifestation starts with two types of fading effects: large-scale fading and small-scale fading. Large-scale fading represents the average signal power attenuation or the path loss due to motion over large areas.Small-scale fading refers to the dramatic changes in signal amplitude and phase that can be experienced as a result of small changes (as small as a half-wavelength) in the spatial positioning between a receiver and transmitter \cite{AWGN}.
+\\A fading multi-path channel is characterized by several parameters: 
+
+\paragraph{Delay Spread}
+In a multi-path channel, signal power at the receiver spreads over a certain range of time. The delay of the $i$th signal component in excess of the delay of the first arriving component is called excess delay, denoted as $\tau_i$ \cite{fuqin}. $\tau$ is a random variable, therefore average $\bar{\tau}$ is \textit{mean excess delay}. $\sqrt{\sigma_\tau}$ is rms excess delay or \textit{rms delay spread}.
+\textit{Excess delay spread} is defined as the longest time delay during which multipath energy falls to $X$dB below the maximum: $\left( \tau_X-\tau_0\right)$. $\tau_0$ is the delay of the first arriving signal and $\tau_X$ is the maximum delay at which a multipath component is within $X$dB of the strongest signal.
+
+\paragraph{Coherence Bandwidth}
+Coherence bandwidth is the range of frequencies over which the channel can be considered flat\cite{Hindu}. It can be measured as the reciprocal of delay spread \cite{Proakis}.
+$$B_i=\frac{1}{\tau_i} $$
+
+\paragraph{Doppler Spread}
+According to \cite{Hindu}, Doppler spectrum is the spectrum of the fluctuations of the received signal strength. Doppler spread $(B_D)$ is a measure of spectrum broadening caused by relative movement of the mobile and base station or of obstacles in the channel. $B_D$ equals maximum doppler frequency $(B_D = f_M)$. Total bandwidth of the received signal is determined by the bandwidth of the baseband signal and the Doppler spread. If baseband $BW\gg B_D$ the effects of Doppler spread are negligible at the receiver.
+
+\paragraph{Coherence Time}
+Coherence time ($T_c$) is the time taken between the first and the last arriving multi-path components in a transmitted signal \cite{Proakis}.
+
+%%%%%%%%%%%%%%%%%%%
+% Fading channels %
+%%%%%%%%%%%%%%%%%%%
+\subsection{Channel Classification}
+Certain parameters are used to classify fading channels:
+\subsubsection{Flat Fading} 
+Also called non-frequency selective fading. Flat fading is found in a wireless channel with a constant gain and linear phase response over a bandwidth greater than signal bandwidth. \cite{fuqin}.
+
+In this case, all of the received multi-path components of a symbol arrive within the symbol time duration; hence, the components are not resolvable. There is no channel-induced \gls{ISI}, since the signal time spreading does not result in significant overlap among neighboring received symbols. There is still performance degradation, since the unresolvable phasor components can add up destructively to yield a substantial reduction in \gls{SNR} \cite{AWGN}.
+The flat fading channel is characterized by:
+\begin{align*}
+B_c &\gg B_s\\
+\sigma_\tau &\ll T_s
+\end{align*}
+A fading channel is flat if channel coherence bandwidth is much greater than signal bandwidth or the rms delay spread much smaller than symbol period\cite{fuqin}.
+
+\subsubsection{Frequency Selective Fading}
+A channel is said to have frequency selective fading if delay time, $T_m$, is greater than symbol time, $T_s$. This usually occurs whenever the received multi-path components extends beyond the symbol's time duration. Due to time dispersion, the received signal suffers \gls{ISI}.
+Some frequency components have greater gains than others and thus the channel is often considered a linear filter\cite{fuqin}. Models of frequency selective fading channels are developed from wideband measurement. This channel is characterized by:
+\begin{align*}
+B_c &< B_s\\
+\sigma_\tau &> T_s
+\end{align*}
+A fading channel is frequency selective if channel coherence bandwidth is smaller than signal bandwidth or the rms delay spread is greater than the signal symbol period\cite{fuqin}.
+
+\subsubsection{Fast Fading}
+If the channel impulse response changes rapidly within a signal symbol duration, the channel is classified as a fast fading channel. The fast change of the channel impulse response is attributed to motion or doppler spreading. In fast fading, there is low data rate and high speed of the mobile unit \cite{fuqin}. A fast fading channel is characterized by:
+\begin{align*}
+T_s &> T_c\\
+B_s &< B_D
+\end{align*}
+When coherence time is smaller than symbol duration or Doppler spreading is greater than signal bandwidth, a signal undergoes fast fading\cite{fuqin}.
+
+\subsubsection{Slow fading}
+In a slow fading channel, the channel impulse response changes at a much slower rate than the symbol rate. Slow fading corresponds to high data rate and low speed of the mobile unit\cite{fuqin}. Characterized by:
+\begin{align*}
+T_s &\ll T_c\\
+B_s &\gg B_D
+\end{align*}
+Small-scale fading results in very high \gls{BER}s. To overcome the \gls{BER} effect it is not feasible to increase the transmit power. A disproportionately huge increase in the transmit power is required. Error control coding with interleaving, diversity schemes and using directional antennas can be used to mitigate the effects of small-scale fading \cite{Hindu}.
+
+\subsection{Fading Envelope Distribution}
+\subsubsection{Rayleigh Fading}
+When there are multiple reflective paths that are large in number, and if there is no line-of-sight signal component; the envelope of such a received signal is statistically described by a Rayleigh \gls{PDF}\cite{AWGN}.
+
+In mobile radio channels, Rayleigh distribution is commonly used to describe the statistical time varying nature of the received envelope of a flat fading signal, or the envelope of an individual multi-path component\cite{4vn}.
+Considering a complex low pass-signal, where none of the multi-path components is dominant, $r_1(t)$ and $r_Q(t)$ are Gaussian processes with zero mean and a variance of $\sigma^2$ \cite{fuqin}.
+The probability distribution function (PDF) of the Rayleigh envelope is given by
+\begin{align*}
+p(z) &= \frac{z}{\sigma^2}\exp{\left( -\frac{z^2}{2\sigma^2}\right)}&, z\geq 0
+\end{align*}
+$p(z)=0$ for $z<0$\cite{fuqin}. 
+\begin{figure}[h!]
+	\centerline{\resizebox{14cm}{!}{\input{Graphics/ray_pd.pdf_tex}}}
+	\caption{Rayleigh Distribution Density}
+	\label{fig:ray_pd}
+\end{figure}
+Maximum probability $p(z)$ occurs at $z=\sigma$. The probability that the envelope doesn't exceed a specific value $Z$ is given by the \gls{CDF}:
+$$P(Z) = \int_0^Zp(z)dz = 1- \exp{\left( -\frac{Z^2}{2\sigma^2}\right)}$$
+The mean value of the Rayleigh envelope is:
+$$E\{ z\} = \int_0^\infty zp(z)dz = \sqrt{\frac{\pi}{2}}\sigma$$
+The average power of the Rayleigh envelope is:
+$$E\{z^2\} = \Omega = 2\sigma^2$$
+The ac power of the envelope is the variance
+$$\sigma_z^2 = E\{z^2\} - (E\{z\})^2 = 2\sigma^2 - \left(\sqrt{\frac{\pi}{2}}\sigma\right)^2$$
+Rayleigh density can be written in terms of average power $\Omega$ as:
+$$p(z) = \frac{2z}{\Omega}\exp{\left( -\frac{z^2}{\Omega}\right)}$$
+It is assumed that all signals suffer nearly the same attenuation but arrive with different phases with a random variable corresponding to signal amplitude as $z$ \cite{Hindu}. 
+ 
+\subsubsection{Rician Fading}
+When there is a dominant nonfading signal component present, such as a line-of-sight propagation path, the fading envelope is described by a Rician \gls{PDF}\cite{AWGN}.
+Random multi-path components arrive at different angles and are superimposed on a stationary dominant signal \cite{4vn}. If a multi-path component is dominant, such a the line of sight or specular component,  $r_1(t)$ and $r_Q(t)$ are Gaussian processes with a nonzero mean \cite{fuqin}. The probability distribution function (PDF) of the Rician envelope is given by
+\begin{align}
+p(z) &= \frac{z}{\sigma^2}\textit{exp}\left (-\frac{{z^2}+{A^2}}{2\sigma^2}\right)I_0 \left(\frac{A_Z}{\sigma^2}\right)&,  z\geq0 \label{eqn:rice_pdf}
+\end{align}
+\\and $p(z)=0$ for $z<0$ where $A$ is the peak amplitude of the dominant signal and $I_0(\cdot)$ is the zeroth modified Bessel function of the first kind\cite{fuqin}. $K$ for a Rician channel is the ratio of the power of the specular signal to the power of the scattered components\cite{Hindu}.
+$$K(dB) = 10\log \frac{A^2}{2\sigma^2}$$
+Average power is given by:
+$$E\{z^2\} = \Omega = A^2 + 2\sigma^2 = 2\sigma^2(1+K)$$
+Rician density in terms of $K$ and $\Omega$ is:
+\begin{align*}
+p(z) &= \frac{2z(K+1)}{\Omega}\exp\left(-K-\frac{(K+1)z^2}{\Omega}\right)I_0\left(2z\sqrt{\frac{K(K+1)}{\Omega}}\right) &, z\geq 0
+\end{align*}
+\begin{figure}[h!]
+	\centerline{\resizebox{14cm}{!}{\input{Graphics/rice_pd.pdf_tex}}}
+	\caption{Rician Distribution Density}
+	\label{fig:rice_pd}
+\end{figure}
+Figure \ref{fig:rice_pd} shows Rician distribution density for various values of $K$ at a fixed average power of $\Omega = 2$. For $K=0$, $A=0$ implying absence of a specular component, therefore the Rician distribution becomes a Rayleigh distribution.
+
+\subsection{Digital Modulation in slow, flat fading channels}
+A signal undergoes multiplicative variation in a flat fading channel. Amplitude and phase are affected as the multiplying coefficient is a complex one. Amplitude attenuation and phase shift can be considered constant over at least a symbol duration.
+For a transmitted low pass signal $\tilde{s}(t)$, the received equivalent lowpass complex signal can be written as:
+\begin{align}
+\tilde{r}(t) &= ze^{-j\phi}\tilde{s}(t) + \tilde{n}(t)\label{eqn:sig_rec}
+\end{align}
+$z$ is the amplitude of the signal assuming $\tilde{s}(t)$ has unit amplitude, $\phi$ is phase shift caused by the channel and $\tilde{n}(t)$ is the equivalent lowpass complex additive Gaussian noise.
+
+Average error probability can be evaluated by averaging error probability for a fixed amplitude $z$ over the entire range of $z$
+\begin{align}
+P_e = \int_0^\infty P_e(\gamma_b)p(\gamma_b)d\gamma_b
+\label{eqn:bit_prob}
+\end{align}
+Where
+$$\gamma_b = z^2E_b/N_0$$
+is the \gls{SNR} with fading for a particular value of $z$. $P_e(\gamma_b)$ is symbol/bit error probability conditioned on a fixed $\gamma_b$ and $p(\gamma_b)$ is the \gls{PDF} of $\gamma_b$.
+
+To use the expression above, the demodulator must have a binary detector with a zero threshold eg. B\gls{PSK} and Q\gls{PSK}. (Q\gls{PSK} can use 2 binary detectors for the \gls{$I$} and \gls{$Q$} channels) In these cases, $\tilde{r}(t)$ can be directly sent to the demodulator and detection is optimal.
+
+But for modulations with multiple thresholds, $\tilde{r}(t)$ cannot be directly sent to the demodulator; \gls{BER} caused by wrong thresholds will be greater than noise-induced \gls{BER}. This is because the detector thresholds are designed for a fixed signal constellation $\left\{\tilde{s}_i(t)\right\}$. For each value of channel gain $z$, detector thresholds are redesigned so that $P_e(\gamma_b)$ can be obtained using the \gls{AWGN} formula and $P_e$ then evaluated using equation \ref{eqn:bit_prob}.
+
+The channel effect is corrected by dividing the received signal by channel gain.
+$$\tilde{r}_1(t) = \frac{\tilde{r}(t)}{ze^{-j\phi}} = \tilde{s}(t) + \frac{\tilde{n}(t)}{ze^{-j\phi}}$$
+The $\tilde{r}_1(t)$ can be sent to the demodulator designed for $\left\{\tilde{s}_i(t)\right\}$. $\tilde{r}_1(t)$ has \gls{SNR} of $\gamma_b$, the \gls{AWGN} formula can be used to estimate $P_e$. Channel estimation is needed to estimate $ze^{-j\phi}$
+
+\subsubsection{Rayleigh Fading Channel}
+With a Rayleigh fading channel, $z$ has a Rayleigh distribution, therefore $z^2$ and $\gamma_b$ have a chi-square distribution with two degrees of freedom:
+\begin{align}
+p(\gamma_b) &= \frac{1}{\Gamma}\exp \left( -\frac{\gamma_b}{\Gamma}\right) &, \Gamma \geq 0
+\label{eqn:ray_pdf}
+\end{align}
+Where
+$$\Gamma = E\{z^2\}\frac{E_b}{N_0}$$
+is the average \gls{SNR}.
+Substituting the error probability expression of the modulation being used as in an \gls{AWGN} channel and $p(\gamma_b)$ into equation \ref{eqn:bit_prob} we can obtain the error probability expression of the modulation in a slow flat, Rayleigh fading channel.
+
+For many modulation schemes, $P_e$ in the AWGN function is in form of $Q$ function or exponential function. For these function forms, the $P_e$ expressions in the fading channel are in closed forms. For other schemes numerical calculation is needed to obtain error probabilities in the fading channel. For many schemes:
+\begin{align*}
+P_e &= CQ\left(\sqrt{\frac{\delta E_b}{N_0}}\right)\\
+P_e &= C \exp \left( - \frac{\delta E_b}{N_0} \right)
+\end{align*}
+$C$ and $\delta$ are constants. In the fading channel, \gls{SNR} $E_b/N_0$ becomes $\gamma_b = z^2E_b/N_0$. Correspondingly, the error probabilities are:
+\begin{align}
+P_e(\gamma_b) &= CQ\left(\sqrt{\delta\gamma_b}\right)\label{eqn:p_eQ}\\
+P_e(\gamma_b) &= C \exp (-\delta\gamma_b)\label{eqn:p_eExp}
+\end{align}
+Substituting equations \eqref{eqn:p_eQ} or \eqref{eqn:p_eExp}, and \eqref{eqn:ray_pdf} into equation \eqref{eqn:bit_prob}, the corresponding bit error probabilities can be obtained.
+
+\subsubsection{Rician fading channel}
+The amplitude $z$ of the received signal \eqref{eqn:sig_rec} has a density function given in equation \eqref{eqn:rice_pdf}. The Rician density is transformed into an expression where the random variable is the instantaneous \gls{SNR} $\gamma_b = z^2E_b/N_0$ instead of signal amplitude $z$:
+\begin{align}
+p(\gamma_b) &= \frac{K+1}{\Gamma}\exp\left(-\frac{\gamma_b(K+1)+K\Gamma}{\Gamma}\right)I_0\left(\sqrt{\frac{4(K+1)K\gamma_b}{\Gamma}}\right)
+\label{eqn:rice_pdf_snr}
+\end{align}
+Using \eqref{eqn:rice_pdf_snr} and the correct $P_e(\gamma_b)$ based on modulation being used in equation \eqref{eqn:bit_prob}, bit ratio can also be found.

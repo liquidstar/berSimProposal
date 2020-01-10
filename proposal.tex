@@ -1,0 +1,125 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[acronym]{glossaries}
+\makeglossaries
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{array}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{mathrsfs}
+\usepackage[symbol]{footmisc}
+\usepackage{perpage}
+\MakePerPage{footnote}
+\author{Manyara, Peter}
+\usepackage[pdfauthor=Peter\ Manyara\ \&\ Rosemary\ Litunya, pdftitle=Final\ Project\ Proposal, pdfsubject=Simulation\ of\ BER\ for\ OFDM\ Variant\ in\ a\ Fading\ Channel]{hyperref}
+
+\input{Chapters/glossary.tex}
+\begin{document}
+\addtolength{\topmargin}{-.5in}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% - - - T I T L E   P A G E - - - %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Chapters/titl_page.tex}	
+%%-------------------------------%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% - - - D E C L A R A T I O N - - - %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagenumbering{roman}
+\input{Chapters/decl.tex}
+\label{cap:decl}
+\addcontentsline{toc}{chapter}{\nameref{cap:decl}}
+
+%%-------------------------------%%
+
+
+\chapter*{Abstract}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% - - - A B S T R A C T - - - %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\label{cap:abs}
+\addcontentsline{toc}{chapter}{\nameref{cap:abs}}
+%%-------------------------------%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% - - - L I S T   O F   F I G U R E S - - - %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\listoffigures
+\label{cap:lof}
+\addcontentsline{toc}{chapter}{\nameref{cap:lof}}
+
+%%---------------------------------------------%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% - - - L I S T  O F   T A B L E S - - - %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\listoftables
+\label{cap:lot}
+\addcontentsline{toc}{chapter}{\nameref{cap:lot}}
+
+%%------------------------------------------%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% - - - L I S T   O F   A B B R E V I A T I O N S - - - %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\printacronyms[title=Abbreviations]
+\label{cap:acron}
+\addcontentsline{toc}{chapter}{Abbreviations}
+
+%%---------------------------------------------------------%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% - - - T A B L E   O F   C O N T E N T S - - - %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% - - - I N T R O D U C T I O N - - - %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Chapters/intro.tex}
+
+%%---------------------------------------%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% - - - L I T E R A T U R E   R E V I E W - - - %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Chapters/litr_rev.tex}
+
+%%-------------------------------------------------%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% - - - M E T H O D O L O G Y - - - %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Chapters/methodology.tex}
+
+%%-----------------------------------%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% - - - E X P E C T A T I O N S - - - %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Chapters/expectations.tex}
+
+%%-------------------------------------%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% - - - B I B L I O G R A P H Y - - - %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{unsrt}
+\bibliography{proposal.bib}
+\addcontentsline{toc}{chapter}{Bibliography}
+\pagebreak
+
+%%---------------------------------------%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% - - - G L O S S A R Y - - - %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagenumbering{Alph}
+\addcontentsline{toc}{chapter}{Glossary}
+\printglossary
+%%---------------------------------------%%
+
+\end{document}

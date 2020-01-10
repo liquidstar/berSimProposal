@@ -1,0 +1,269 @@
+%%
+%% Literature review on OFDM
+%% By Peter Manyara
+%%
+%%	Nesting levels: Section, Subsection, Subsubsection, Paragraph 
+%%	More aren't needed
+%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% S E C T I O N    H E A D E R %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Orthogonal Frequency Division Multiplexing}
+OFDM is a type of \gls{MCM}\cite{fuqin}. The most apparent advantage of \gls{MCM} is that Transmitting $N$ symbols on $N$ carriers simultaneously reduces symbol rate to $1/N$ of the original symbol rate; or increases symbol duration by $N$ times, thus mitigating \gls{intersymbol_interference}, reducing the need for \gls{equalization}.
+
+Separating the signals of \gls{subband}s at receiver can be done by:
+\begin{itemize}
+	\item Spacing subcarrier center frequencies such that the spectra of $N$ \gls{subband}s are non-overlapped. $N$
+	\gls{BPF}s are used to separate the \gls{subband}s. Each \gls{BPF} needs to have a sharp frequency response. This is used in \gls{FDM}.
+	\item Allow adjacent \gls{subband}s to overlap. Separability is obtained by spacing \gls{subcarrier}s by $1/T$ where $T$ is symbol period. All \gls{subcarrier}s are \gls{orthogonal} to each other and can be separated by correlators in receiver. This is \gls{OFDM}.
+\end{itemize}
+
+The advantages of \gls{OFDM} over single carrier modulation are:
+\begin{enumerate}
+	\item \gls{nyquist_rate} for a given channel can be approached without use of sharp cutoff filters.
+	\item Elongates signal period, countering effects of \gls{ISI} due to channel dispersion and multipath interference.
+	\item Divides the frequency band into narrow bands reducing sensitivity to wide-band impulse noise and fast channel fades.
+	\item The effect of a slow frequency-selective fade is a separate complex gain on each \gls{subband} signal and can be removed by multiplying the signal with the conjugate of the complex gain. Equalization can be easily done with a one-tap equalizer.
+	\item Different modulation formats can be used on different \gls{subcarrier}s depending on noise levels of individual \gls{subband}s.
+	\item It is digitally implementable using \gls{IDFT}/\gls{DFT} pair via the \gls{IFFT}/\gls{FFT} algorithm pair, greatly reducing system complexity.
+\end{enumerate}
+Application of \gls{OFDM} in recent years has been due to increasing computing power. It is today used for \gls{ASDL} and \gls{WLAN}.
+
+%%	-----------------------------------------
+%%	Exposition on the OFDM signal and spectra
+%%	-----------------------------------------
+\subsection{OFDM Signal and Spectrum}
+The final form of an OFDM signal can be baseband or bandpass signal. For wired systems, due to limited bandwidth, it is in the baseband spectrum whereas in wireless transmission, \gls{OFDM} signals are generated in baseband then up-converted to the \gls{RF} band for transmission.
+
+\subsubsection{Baseband OFDM Signal}
+Its general form is expressed as:
+$$s(t) = \sum_{i=0}^{N-1}s_i(t) = \sum_{i=0}^{N-1}A_i\cos\left( 2\pi f_it + \phi_i\right), 0\leq t\leq T$$
+
+$A_i$, $f_i$ and $\phi_i$ are the amplitude, frequency and phase of the $i$th \gls{subcarrier} and $N$ is the number of \gls{subcarrier}s. $T$ is the symbol period of the data. Depending on modulation \gls{ASK}, \gls{PSK} or \gls{FSK} $A_i$, $\phi_i$ or $f_i$ respectively are determined by data while the others remain constant.
+
+For the \gls{subcarrier}s to be \gls{orthogonal}, $f_i$ must be integer multiples of $1/2T$ and minimum frequency separation between \gls{subcarrier}s must be $1/T$. $f_i$ are usually chosen as integer multiples of $R_s = 1/T$ and are equally spaced in frequency by the same. Spacing can be reduced to $1/2T$ if modulation is \gls{ASK}\cite{fuqin}. For the rest of this exposition, the spacing used is $1/T$ which is \gls{orthogonal} regardless of modulation technique.
+
+Taking lowest \gls{subcarrier} freq to be $f_0$, then the \gls{subcarrier} frequencies are: $f_0, f_0+R_s, f_0+2R_s,\ldots , f_0 + (N-1)R_s$. In a practical \gls{OFDM} system $f_0$ isn't zero to avoid problems created by the DC offset of the \gls{D/A} converter. Use of $f_0 = 0$ doesn't invalidate theoretical results since the zero frequency \gls{subcarrier} is left unused\cite{fuqin}. Therefore, the \gls{subcarrier} frequencies can be taken to be:
+\begin{align}
+	\label{f_alloc}
+	f_i = iR_s = \frac{i}{T}, i = 0,1,\ldots , N-1
+\end{align}
+
+With these \gls{subcarrier} frequencies, \gls{orthogonal}ity can be verified by:\\
+\begin{align*}	%%	# Proof of orthogonality
+	\int_0^Ts_i(t)s_j(t)dt = \begin{cases}
+	{A_0}^2T\cos^2\phi_0 &, i=j=0\\
+	\frac{1}{2}A_i^2T &, i=j\neq 0\\
+	0 &, i\neq j
+	\end{cases}
+\end{align*}
+This is proof of \gls{orthogonal}ity between \gls{subcarrier}s\cite{ofdm_intro}. It holds for all values of $A_i$, $A_j$ and $\phi_i$, $\phi_j$ for the frequency allocation \eqref{f_alloc}.
+
+The frequency spectrum of the OFDM signal is characterized by its \gls{PSD}. Assuming data on each \gls{subcarrier} is independent from others, total \gls{PSD} is a superposition of the \gls{PSD}s of all \gls{subband} signals\cite{fuqin}:
+$$S(f) = \sum_{i=0}^{N-1}S_i(f)$$
+
+$S_i(f)$ is the \gls{PSD} of the $i$th \gls{subband} signal $s_i(t)$. For $i\neq 0$, $s_i(t)$ is a linearly modulated signal. If the modulation is \gls{MASK} or \gls{QAM} with symmetrical constellation, the \gls{PSD} of the $i$th \gls{subband} signal is:
+\begin{align}
+\label{psd_cont}
+S_i(f) = \frac{1}{2}A_{avg}^2T\left[ \left(\frac{\sin \pi (f-f_i)T}{\pi (f-f_i)T}\right)^2 + \left(\frac{\sin \pi (-f-f_i)T}{\pi (-f-f_i)T}\right)^2\right], i\neq 0
+\end{align}
+
+Where $A_{avg}^2 = 2\sigma_a^2$ for \gls{QAM} and $A_{avg}^2 = \sigma_a^2$ for \gls{MASK}. $\sigma_a^2$ is the amplitude variance of the \gls{$I$} or \gls{$Q$} channel signal of \gls{QAM} (only \gls{$I$} for MASK) over their signal constellation.
+
+If the modulation is \gls{MPSK}, the \gls{PSD} function is the same except the $A_{avg}$ is equal to the \gls{PSK} amplitude. If the modulation is unipolar \gls{MASK}, the \gls{PSD} will have a continuous part and discrete part. The continuous part is the same as \eqref{psd_cont} and discrete is a spectral line at $\pm f_i$ with strength $\left( m_A\right)^2$ where $m_A$ is the mean of the amplitudes.
+
+For $i=0$, $s_i(t) = A_i\cos\phi_i$ is a baseband signal which is equal to the \gls{$I$} channel data of \gls{QAM} or \gls{PSK}. Its \gls{PSD} is given by:
+$$S_0(f) = \sigma_a^2T\left( sinc\ \pi (f)T\right)^2 = \frac{1}{2}A_{avg}^2T\left( sinc\ \pi (f)T\right)^2$$
+
+Combining the 3 preceding equations and normalizing the \gls{PSD} by its maximum and showing only the positive frequency part:
+\begin{align}
+	\label{psd_gen}
+	S(f) = \sum_{i=0}^{N-1}\left( \frac{\sin\pi(f-f_i)T}{\pi(f-f_i)T}\right)^2 &, f\geq 0
+\end{align}
+Each member of \gls{PSD} has the shape of a squared sinc function. The first \gls{PSD}'s null is at $(f-f_i)=1/T$. Separation between \gls{subcarrier}s is $1/T$, which means that the first null point coincides with the peak of the \gls{PSD}s of adjacent \gls{subband} signals.
+
+The null bandwidth of the composite PSD of an N-subcarrier baseband OFDM signal is:
+$$B_{null} = \frac{N}{T} = NR_s$$
+$$B_{null-to-null}=\frac{2N}{T} = 2NR_s$$
+
+Transition bands are getting sharper and side-lobes getting lower as $N$ increases. Normalized zero-to-null frequency bandwidth approaches $1$ when $N$ approaches infinity.
+
+\subsubsection{Bandpass \gls{OFDM} Signal}
+With an \gls{RF} bandwidth allocated for an \gls{OFDM} signal, \gls{subcarrier} frequencies are chosen to be symmetrically distributed around a nominal carrier frequency $f_c$ of the band. Ergo the \gls{subcarrier} frequencies are:
+$$f_i = f_c - \frac{N-1}{2T}+\frac{i}{T}, i=0,1,\ldots,N-1$$
+Thus, \gls{subcarrier} frequencies range from $f_c - \frac{N-1}{2T}$ to $f_c + \frac{1}{2T}$.
+
+The bandpass \gls{OFDM} signal can be expressed as\cite{fuqin}:
+$$s(t) = \sum_{i=0}^{N-1}A_i\cos\left[ 2\pi\left( f_c-\frac{N-1}{2T}+\frac{i}{T}\right)t + \phi_i\right], 0\leq t\leq T$$
+The \gls{subcarrier}s at \gls{RF} band needn't be \gls{orthogonal} to each other since demodulation isn't performed at the \gls{RF} band\cite{fuqin}. The RF band OFDM signal is down-converted to baseband then demodulated. At baseband, subcarrier frequencies are a multiple of $1/2T$\cite{fuqin}.
+
+Bandpass OFDM signal is a frequency shifted version of the baseband signal. When data on each subcarrier is independent of others, the OFDM signal is a sum of independent signals. Total PSD is a sum of individual PSDs of each subcarrier. Each subcarrier's PSD is a squared sinc function centered at $f_c - \frac{N-1}{2T}+\frac{i}{T}$. For only positive frequency, the total PSD expression is:
+$$S(f) = \sum_{i=0}^{N-1}\left( \frac{\sin\left[ \pi(f-(f_c-\frac{N-1}{2T}+\frac{1}{T}))T\right]}{\pi(f-(f_c-\frac{N-1}{2T}+\frac{1}{T}))T}\right)^2$$
+
+This is clearly a frequency shifted version of the baseband \gls{PSD}. The frequency shift observable from comparing baseband and bandpass PSD expressions is:
+$$f_c^\prime = f_c - \frac{N-1}{2T}$$
+
+This frequency shift can be obtained by mixing the baseband OFDM signal with an RF signal of frequency $f_c^\prime$ and keeping \gls{USB} but filtering out \gls{LSB}. The RF mixing frequency is the frequency offset by $(N-1)/(2T)$ from it.
+Null to null bandwidth is:
+$$B_{null-to-null}=\frac{N+1}{T}=(N+1)R_s$$
+
+Transition bands of bandpass PSDs get sharper and sidelobes get lower as $N$ increases and the normalized null-to-null bandwidth approaches 1 when $N\to\infty$\cite{fuqin}.
+The Nyquist rate of a channel with a rectangular frequency response is equal to the bandpass bandwidth of the channel. OFDM has achieved Nyquist rate since its normalized bandpass frequency bandwidth is 1\cite{fuqin}. 
+
+\subsection{OFDM Modulator and Demodulator}
+Two implementations of OFDM modem are suggested.
+\begin{itemize}
+	\item Using oscillators and multipliers for modulator and correlators for demodulator.
+	\item Using discrete Fourier transform.
+\end{itemize}
+The first implementation follows the single-carrier system. For a large number of subcarriers, the system is prohibitively complex and impractical. The second is based on the complex envelope of the OFDM signal. It is very efficient for a large number of subcarriers.
+
+\subsubsection{Analogue OFDM Modem}
+Each modulated subcarrier in the OFDM signal can be generated using MPSK, MASK or QAM modulators. Their sum is the baseband OFDM signal. 
+\paragraph{Transmitter side}
+The process of modulation in Fig.\ref{fig:anal_mod} is\cite{fuqin}:
+\begin{figure}[h!]
+	\centerline{\resizebox{16cm}{!}{\input{Graphics/analog_mod.pdf_tex}}}
+	\caption{Analog OFDM Modulator}
+	\label{fig:anal_mod}
+\end{figure}
+\begin{itemize}
+	\item Serial data bits $\{ a_k\}$ are converted by the $1:N$ serial to parallel converter to $N$ data streams.
+	\item In the mapper block, bits in each stream are grouped into k-tuples, each of which is mapped to a symbol, generally denoted by a complex number.
+	\begin{align*}
+	di &= A_i\exp (j\phi_i) = I_i + jQ_i,\ i=0,1,\ldots,N-1\\
+	I_i &= A_i\cos \phi_i\\
+	Q_i &= A_i\sin\phi_i\\
+	\end{align*}
+	\item $di$ is modulated into the $i$th subcarrier in the modulator. Each subchannel can have a different modulation. There are $N$ modulators and subcarrier frequencies. Each complete modulator comprises a subcarrier oscillator, multiplier(s) and an adder. A phase shifter is needed for quadrature modulations. Each modulator's adder may be omitted since its task is carried out by the final adder.
+	\item If a bandpass OFDM signal is desired, the adder in the modulator is followed by a cascade of an RF mixer with a reference signal of frequency $f_c^\prime = f_c - \frac{N-1}{2T}$ and a \gls{BPF} whose frequency response rejeccts the lower sideband of the mixer output. The output is a band pass OFDM signal with spectrum centered at $f_c$. 
+\end{itemize}
+
+\paragraph{Receiver side}
+The processing at the receiver is basically the reverse of what takes place at the transmitter\cite{ofdm_intro}:
+\begin{figure}[h!]
+	\centerline{\resizebox{16cm}{!}{\input{Graphics/analog_demod.pdf_tex}}}
+	\caption{Analog OFDM Demodulator}
+	\label{fig:anal_demod}
+\end{figure}
+\begin{itemize}
+	\item A down-converter with reference of $f_c^\prime$ is used to translate the signal to the baseband before demodulation is performed.
+	\item The demodulator is also a bank of N demodulators at N subcarrier frequencies. Each demodulator comprises a local oscillator, multiplier, integrator and threshold detector.
+\end{itemize}
+Ideally, due to subcarrier \gls{orthogonal}ity, each demodulator is independent of others. Thus the BEP of each channel is same as of a single-carrier system. Practically, use of filters imposes requirements on filters' frequency responses.
+
+\subsubsection{\gls{DFT}-based OFDM Modem}
+The bandpass OFDM signal can be written as:
+\begin{align*}
+s(t) &= \Re\left\{ \left( \sum_{i=0}^{N-1}d_i\exp(j2\pi \frac{i}{T}t)\right)\exp\left[ j2\pi\left( f_c-\frac{N-1}{2T}\right)t\right]\right\}&,\ 0\leq t\leq T\\
+\end{align*}
+
+$d_i$ is the complex data symbol. With respect to the lower carrier frequency $f_c - \frac{N-1}{2T}$, the complex envelope of the OFDM bandpass signal is:
+\begin{align*}
+\tilde{s}(t) &= \sum_{i=0}^{N-1}d_i\exp(j2\pi\frac{i}{T}t)&,\ 0\leq t\leq T\\
+\end{align*}
+
+Baseband OFDM signal can be written as:
+\begin{align*}
+s(t) &= \Re\left[ \sum_{i=0}^{N-1}d_i\exp(j2\pi\frac{i}{T}t)\right] = \Re\left[ \tilde{s}(t)\right]&,\ 0\leq t\leq T\\
+\end{align*}
+
+That is, baseband OFDM signal is the real part of the complex envelope of the bandpass OFDM signal. If we sample the complex envelope with a sampling period of $\Delta t = T/N$ and add a normalizing factor $1/N$, we obtain:
+\begin{align*}
+s_n &= \frac{1}{N}\sum_{i=0}^{N-1}d_i\exp\left( j2\pi\frac{in}{N}\right)&,\ n = 0,1,\ldots,N-1\\
+\end{align*}
+
+This expression is the \gls{IDFT}. $\therefore$ samples of the complex envelope of an OFDM signal can be generated by \gls{IDFT}\cite{fuqin}. Input complex data is in the frequency domain and the output samples, also complex, are in the time domain. If the receiver gets the samples without distortion, the data symbols, $d_i$ can be recovered by \gls{DFT}\cite{ofdm_intro} given by:
+\begin{align*}
+d_i &= \sum_{n=0}^{N-1}s_n\exp\left( -j2\pi\frac{in}{N}\right),&\ i=0,1,\ldots,N-1\\
+\end{align*}
+
+Thus, in conclusion, OFDM modulation and demodulation can be implemented by a pair of \gls{IDFT} and \gls{DFT}. This simplpifies it. IDFT and DFT can be calculated by their fast algorithms \gls{IFFT} and \gls{FFT} which reduce the number of computations to the order of $N\log N$\cite{ofdm_intro} (This is the state of present day implementations).
+
+In practice, the complex signal samples $\{s_n\}$ must be separated into a real component $(I)$ and imaginary component $(Q)$ channel first then each is converted to an analog signal before transmission for baseband transmission or further modulated onto HF carriers for RF band transmission. Distortionless I and Q analog signals cannot be recovered through the DAC due to inadequate signal sampling frequency. The $I$ and $Q$ channel components of $\{ s_n\}$ are:
+\begin{align*}
+I_n &= \frac{1}{N}\sum_{i=0}^{N-1}A_i\cos\left( 2\pi\frac{in}{N}+\phi_i\right)&,\ n=0,1,\ldots,N-1\\
+Q_n &= \frac{1}{N}\sum_{i=0}^{N-1}A_i\sin\left( 2\pi\frac{in}{N}+\phi_i\right)&,\ n=0,1,\ldots,N-1\\
+\end{align*}
+
+\noindent These are samples of:
+\begin{align*}
+I(t) &= \frac{1}{N}\sum_{i=0}^{N-1}A_i\cos\left( 2\pi\frac{i}{T}t+\phi_i\right)&,\ 0\leq t\leq T\\
+Q(t) &= \frac{1}{N}\sum_{i=0}^{N-1}A_i\sin\left( 2\pi\frac{i}{T}t+\phi_i\right)&,\ 0\leq t\leq T\\
+\end{align*}
+
+Null to null bandwidth is $2N/T$ therefore sampling frequency should at least be $2N/T$ to avoid \gls{aliasing}. But the sampling frequency of $\{ s_n\}$ is only $N/T$ since there are N samples in a symbol period T. The obvious solution is to increase the number of samples to $2N$. Therefore $N$ zeros are appended in the data set $\{ d_i\}$ to form a new data set of size 2N.
+$$d_0,d_1,\ldots,d_{N-1}, 0,0,\ldots,0$$
+
+A $2N$ point \gls{IDFT} is used to generate the OFDM signal and an $N$ point \gls{DFT} to demodulate the signal. The subcarriers with zero data are called \textit{dummy/virtual} channels. Then the PSD of the signal samples will have no significant \gls{aliasing}.
+
+Using a $2N$ point \gls{DFT} pair for an $N$ point data set is inefficient, so Hirosaki\cite{hirosaki} devised a scheme to use only an $N$ point \gls{DFT} pair:
+\begin{itemize}
+	\item In the modulator, the complex data is preprocessed, causing it to pass through an $N$ point \gls{IDFT} twice to obtain the real and imaginary parts of the OFDM signal.
+	\item In the receiver, demodulation is performed for the real and imaginary part in two uses of an $N$ point \gls{DFT} processor.
+\end{itemize}
+Thus the \gls{DFT} processor pair is only $N$-point but the speed is double that of the symbol rate. This scheme is perfectly realizable\cite{hirosaki}.
+
+Another method which doubles efficiency of the scheme in Hirosaki's method: Based on an $N$-point \gls{DFT} pair and $N$-branch PPN at the rate $F$ for the transmission of $2N$ complex symbols at the rate of $F/2$. This is equivalent to transmitting $N$ complex symbols with an $N$-point \gls{DFT} pair at symbol rate.
+\begin{itemize}
+	\item Shift the \gls{DFT} pair index range from $[0,N-1]$ to $[-N/2, -N/2-1]$. In so doing, an $N$-point \gls{DFT} pair will satisfy the Nyquist sampling rate.
+\end{itemize}
+
+The \gls{IDFT}/\gls{DFT} pair can be replaced with:
+\begin{align*}
+s_n^\prime &= \frac{1}{N}\sum_{i=-\frac{N}{2}}^{\frac{N}{2}-1}d_i\exp\left( j2\pi\frac{in}{N}\right)&,\ n = -\frac{N}{2},-\frac{N}{2}+1,\ldots,\frac{N}{2}-1\\
+d_i &= \sum_{i=-\frac{N}{2}}^{\frac{N}{2}-1}s_n^\prime\exp\left( -j2\pi\frac{in}{N}\right)&,\ n = -\frac{N}{2},-\frac{N}{2}+1,\ldots,\frac{N}{2}-1\\
+\end{align*}
+
+Data $d_i$ remains the same except for an index shift and is recovered with little difference from that of the previous \gls{IDFT}/\gls{DFT} pair. The time domain signal samples are different, $s_n^\prime \neq s_n$.
+\begin{align}
+\label{ft_conv}
+s_n^\prime = \begin{cases}
+(-1)^ns_{n+N}&, n=-\frac{N}{2},-\frac{N}{2}+1,\ldots,\frac{N}{2}-1\\
+(-1)^ns_n&, n=-\frac{N}{2},-\frac{N}{2}+1,\ldots,\frac{N}{2}-1\\
+\end{cases}
+\end{align}
+The analog signals from the corresponding $I$ and $Q$ components are:
+\begin{align*}
+I(t) &= \frac{1}{N}\sum_{i=-\frac{N}{2}}^{\frac{N}{2}-1}A_i\cos\left( 2\pi\frac{i}{T}t+\phi_i\right)&,\ -\frac{T}{2}\leq t\leq \frac{T}{2}\\
+Q(t) &= \frac{1}{N}\sum_{i=-\frac{N}{2}}^{\frac{N}{2}-1}A_i\sin\left( 2\pi\frac{i}{T}t+\phi_i\right)&,\ -\frac{T}{2}\leq t\leq \frac{T}{2}\\
+\end{align*}
+
+These baseband OFDM signals have subcarrier frequencies between $-N/(2T)$ and $(N-2)/(2T)$, and a two-sided bandwidth of $(N+2)/T$, which $\to N/T$ as $N\to\infty$. Thus as far as the main lobes of the PSD are concerned, the sampling frequency asymptotically satisfies the Nyquist rate since the sampling rate is $N/T$ for a signal with a 2 sided bandwidth of $N/T$. This is the *critical sampling rate*.
+
+To further reduce aliasing, oversampling is used, accomplished by padding zeros in the data set. Padding allows use of non-ideal LPF. The \gls{DFT}'s properties and fast algorithms(\gls{FFT}) are based on a \gls{DFT} defined on $[0, N-1]$ therefore, one can perform \gls{DFT} on [0, N-1] first then convert $\{ s_n\}^{N-1}_{n=0}$ to $\{s_n^\prime\}^{N/2-1}_{n=-N/2}$ using the formulas \eqref{ft_conv}.
+
+\paragraph{\gls{DFT}-based Digital Modulator}
+The process that takes place in the modulator includes\cite{fuqin}:
+\begin{figure}[h!]
+	\centerline{\resizebox{16cm}{!}{\input{Graphics/dft_mod.pdf_tex}}}
+	\caption{DFT-based OFDM Modulator}
+	\label{fig:dft_mod}
+\end{figure}
+\begin{itemize}
+	\item Serial data $\{ a_k\}$ is converted to symbols  $\{ d_i\}_{-N/2}^{N/2-1}$ through a serial to parallel converter and bits-to-symbol mappers. Zeros for virtual carriers are added to form the data set. The new data set size is $N_s$.
+	\item The \gls{IFFT} block transforms $\{ d_i\}_{i=-N_s/2}^{N_s/2-1}$ into complex time domain signal samples $\{ s_n^\prime\}_{n=-N_s/2}^{N_s/2-1}$.
+	\item A parallel to serial block separates these complex samples into real and imaginary parts and multiplexes them into 2 data streams: real $\{ I_n\}_{n=-N_s/2}^{N_s/2-1}$ and imaginary $\{ Q_n\}_{n=-N_s/2}^{N_s/2-1}$.
+	\item Before being sent to the DAC a cyclic extension is added to the $I$ and $Q$ channel samples as a prefix to avoid inter-symbol interference; and a time domain windowing function so as to reduce side lobes of the spectrum. Assuming perfect D-A conversion, the outputs of the $I$ and $Q$ channel D/A blocks are CT originals of the 2 sampled signals.
+	\item To move baseband signal to RF band, $I(t)$ and $Q(t)$ are quadrature modulated onto an \gls{IF} carrier of frequency $f_{IF}^\prime = f_{IF} + \frac{1}{2T}$. This shifts the baseband OFDM signal to the \gls{IF} band centered at $f_{IF}$.
+	\item A second up-conversion stage (a multiplier plus a \gls{BPF} at $f_c$) shifts the \gls{IF} signal to RF. The \gls{BPF} has a center freq $f_c$ and BW of $(N+1)/T$ to reject the 2nd term of center frequency $f_c-2f_{IF}$
+\end{itemize}
+
+\paragraph{\gls{DFT}-based Digital OFDM Demodulator}
+This the reverse of the modulator's process:
+\begin{figure}[h!]
+	\centerline{\resizebox{16cm}{!}{\input{Graphics/dft_demod.pdf_tex}}}
+	\caption{DFT-based Digital OFDM Demodulator}
+	\label{fig:dft_demod}
+\end{figure}
+\begin{itemize}
+	\item The RF signal is down-converted to an \gls{IF} band.
+	\item The \gls{IF} signal is then demodulated to baseband OFDM signals $I(t)$ and $Q(t)$.
+	\item $I(t)$ and $Q(t)$ are sampled, have the cyclic extensions removed.
+	\item $N_s$ point \gls{FFT} is performed on the blocks, data is removed on virtual carriers and demap the signals back to a binary data stream. Demapping includes threshold detection to remove the effect of noise.
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% S E C T I O N    E N D %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
