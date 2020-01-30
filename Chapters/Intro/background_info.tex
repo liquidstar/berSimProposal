@@ -3,3 +3,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Background Information}
+In a digital communication system, symbol period must be greater than delay time so as to avoid \gls{ISI}. As data rate is inversely proportional to symbol period, longer symbol periods translate to low data rates and diminished communication efficiency. In an \gls{SCM} system, a critical balance between symbol period and data rate must be found. The designer must compromise data rate to mitigate against \gls{ISI}.
+
+In an \gls{MCM} communication system, however, the total available bandwidth is divided into sub-bands over which multiple carriers can transmit in parallel. Closer placement of said sub-carriers in the spectrum facilitates achievement of an overall high data rate. Nevertheless, \gls{ICI} will occur when the spacing between subsequent carriers is too small. In \gls{FDM}, guard bands are placed between adjacent carriers, resulting in lower spectral efficiency and consequent reduced data rate.
+
+\gls{OFDM} is an \gls{MCM} scheme that solves both the \gls{ISI} problem pertinent to \gls{SCM} and the \gls{ICI} problem inherent to \gls{MCM}. 
