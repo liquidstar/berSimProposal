@@ -9,8 +9,95 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% S E C T I O N    H E A D E R %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Orthogonal Frequency Division Multiplexing}
-\gls{OFDM} is a modulation technique that is widely used in various high speed mobile and wireless communication systems. 
+\gls{OFDM} is a modulation technique that is widely used in various high speed mobile and wireless communication systems. It is a communications technique that divides a communications channel into a number of equally spaced frequency bands. Data rate on each of the sub-channels is much less than the total data rate with the bandwidth of the sub-channels being less than the total system bandwidth. 
+
+
+\subsubsection*{History of OFDM}
+Multi-carrier modulation was first used for military High Frequency radios in the late 1950's and 1960's. Use of orthogonal frequencies for transmission first appears in a 1966 patent by Robert W.Chang of Bell Labs with a proposal to generate orthogonal signals using \gls{FFT} surfacing in 1969. The idea was to use parallel data streams and \gls{FDM}(Fig.\ref{Conv_fdm} as discussed by \cite{ofdm_intro}) with overlapping sub-channels. This was to avoid the use of high speed equalization and to combat impulsive noise, and multi-path distortion as well as to fully use the available bandwidth as illustrated in fig.\ref{Conv_ofdm}\cite{ofdm_intro}. The initial applications were in the military communications.
+
+\begin{figure}[h!]
+	\centerline{\resizebox{16cm}{5cm}{\input{Graphics/fdm.pdf_tex}}}
+	
+	\caption{Conventional Frequency Modulation (FDM) multi-carrier modulation technique}
+	\label{Conv_fdm}
+\end{figure}
+
+\begin{figure}[h!]
+	\centerline{\resizebox{16cm}{5cm}{\input{Graphics/ofdm.pdf_tex}}}
+	
+	\caption{Orthogonal Frequency Division Modulation (OFDM) multi-carrier modulation technique}
+	\label{Conv_ofdm}
+\end{figure}
+
+Key aspects of \gls{OFDM} were proposed there after with cyclic prefix which is an important aspect of all practical \gls{OFDM} implementations being proposed in 1980. \gls{OFDM} began to be considered for practical wireless applications in mid-1980s. In 1987, Lassalle and
+ Alard, based in France considered the use of \gls{OFDM} for
+radio broadcasting and noted the importance of combining
+\gls{FEC} with \gls{OFDM}. 
+
+\gls{OFDM} application was pioneered by Cioffi and others at Stanford who showed its
+potential as a modulation technique for digital subscriber
+loop (DSL) applications. In 1999, the first based \gls{OFDM} Wireless Local Area Network (WLAN) standard 802.11a was developed. This was followed in succession
+by 802.11g, 802.11n and 802.16d although the most widely deployed WLAN
+standard is still 802.11b, which uses direct sequence spread spectrum. Currently, \gls{OFDM} is the basis of many telecommunication standards.
+
+\subsubsection{IEEE 802.11 OFDM}
+\gls{OFDM} has been adopted by many wireless standards such as IEEE  802.11. The IEEE 802.11 specification is a standard that defines set requirements for the physical layer and a medium access control layer. For high data rates, the standard provides two physical layers- IEEE 802.11b for 2.4Ghz operation and IEEE 802.11a for 5Ghz operation\cite{802.11}. 802.11a is not inter operable with 802.11b as they operate on separate bands, except if using equipment that has a dual band capability.
+
+ The 802.11a standard uses the same core protocol as the original standard and uses a 52 sub-carrier \gls{OFDM} with a maximum raw data rate of 54 Mbit/s. This yields a realistic throughput in the mid-20 Mbit/s. The total channel bandwidth is 20 MHz with an occupied bandwidth of 16.6 MHz. A single \gls{OFDM} symbol contains 52 sub-carriers; 48 are data sub-carriers and 4 are pilot sub-carriers. All data sub-carriers use the same modulation format within a given burst. However, the modulation format can vary from burst to burst. The possible data sub-carrier modulation formats are \gls{BPSK},\gls{QPSK}, 16\gls {QAM}, and 64 \gls{QAM}. \gls{BPSK} is used to modulate pilot sub-carriers with a known magnitude and phase. Each \gls{OFDM} sub-carrier carries a single modulated data symbol along with its magnitude and phase information. A summary of IEEE 802.11 standard is given in Fig. \ref{table_802.11} according to \cite{IEEE}:
+ 
+ \begin{table}
+ 	\begin{tabularx}{0.9\textwidth} { 
+ 			| >{\raggedright\arraybackslash}X 
+ 			| >{\centering\arraybackslash}X 
+ 			| >{\raggedleft\arraybackslash}X | }
+ 		\hline
+ 		Data Rate & 6,9,12,18,24,36,48,54 Mbps \\
+ 		\hline
+ 		Modulation rate& \gls{BPSK},\gls{QPSK}, 16\gls {QAM}, and 64 \gls{QAM} \\
+ 		\hline
+ 		Coding Rate& 1/2, 2/3, 3/4\\
+ 		\hline
+ 		No. of sub-carriers & 52 \\
+ 		\hline
+ 		No. of pilots & 4 \\
+ 		\hline
+ 		\gls{OFDM} symbol duration & 4$\mu$s \\
+ 		\hline
+ 		Guard interval & 800ns\\
+ 		\hline
+ 		Sub-carrier spacing & 312.5kHz\\
+ 		\hline
+ 		3dB Bandwidth & 16.56Mhz \\
+ 		\hline
+ 		Channel spacing & 20Hz\\
+ 		\hline
+ 		
+ 	\end{tabularx}
+ \caption{IEEE 802.11 \gls{OFDM}
+Parameters}
+ \label{table_802.11}
+ \end{table}
+ 
+\subsubsection*{OFDM Variants}
+\gls{OFDM} variants follow the basic format for \gls{OFDM} but have additional attributes or variations. They utilize \gls{OFDM} concept of close spaced orthogonal carriers each carrying low data rate signals while during the demodulation phase the data is combined to provide the complete signal.
+Some \gls{OFDM} variants include:
+
+
+\textbf{Coded Orthogonal frequency division multiplexing (COFDM):} A form of \gls{OFDM} where error correction coding is incorporated into the signal.
+
+\textbf{Flash \gls{OFDM}:} It is a fast hopped form of \gls{OFDM}. It uses multiple tones and fast hopping to spread signals over a given spectrum band.
+
+\textbf{\gls{OFDMA}:} A scheme used to provide a multiple access capability for applications such as cellular telecommunications when using \gls{OFDM} technologies. \gls{OFDMA} applies the concept of \gls{TDMA} so
+that the sub-carriers can be allocated dynamically among the different users of the channel. This gives a more
+robust system by its ability to scheme users by frequency with increased capacity.
+
+\textbf{Vector OFDM(VOFDM):} This form of \gls{OFDM} uses the concept of \gls{MIMO} technology. It is being developed by CISCO Systems. \gls{MIMO}  uses multiple antennas to transmit and receive the signals so that multi-path effects can be utilized to enhance the signal reception and improve the transmission speeds that can be supported.
+
+\textbf{Wideband \gls{OFDM}(WOFDM):} The concept of this form of OFDM is that it uses a degree of spacing between the channels that is large enough that any frequency errors between transmitter and receiver do not affect the performance. It is particularly applicable to Wi-Fi systems.
+
+ 
 
 \subsection{Principles of OFDM}
 OFDM is a type of \gls{MCM}\cite{fuqin}. The most apparent advantage of \gls{MCM} is that Transmitting $N$ symbols on $N$ carriers simultaneously reduces symbol rate to $1/N$ of the original symbol rate; or increases symbol duration by $N$ times, thus mitigating \gls{intersymbol_interference}, reducing the need for \gls{equalization}.
