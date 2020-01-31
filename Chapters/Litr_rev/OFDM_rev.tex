@@ -191,7 +191,7 @@ The \gls{subcarrier}s at \gls{RF} band needn't be \gls{orthogonal} to each other
 Bandpass OFDM signal is a frequency shifted version of the baseband signal. When data on each subcarrier is independent of others, the OFDM signal is a sum of independent signals. Total PSD is a sum of individual PSDs of each subcarrier. Each subcarrier's PSD is a squared sinc function centered at $f_c - \frac{N-1}{2T}+\frac{i}{T}$. For only positive frequency, the total PSD expression is:
 $$S(f) = \sum_{i=0}^{N-1}\left( \frac{\sin\left[ \pi(f-(f_c-\frac{N-1}{2T}+\frac{1}{T}))T\right]}{\pi(f-(f_c-\frac{N-1}{2T}+\frac{1}{T}))T}\right)^2$$
 
-This is clearly a frequency shifted version of the baseband \gls{PSD}. The frequency shift observable from comparing baseband and bandpass PSD expressions is:
+This is clearly a frequency shifted version of the baseband \gls{PSD}. The frequency shift observable from comparing baseband and bandpass \gls{PSD} expressions is:
 $$f_c^\prime = f_c - \frac{N-1}{2T}$$
 
 This frequency shift can be obtained by mixing the baseband OFDM signal with an RF signal of frequency $f_c^\prime$ and keeping \gls{USB} but filtering out \gls{LSB}. The RF mixing frequency is the frequency offset by $(N-1)/(2T)$ from it.

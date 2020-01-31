@@ -3,3 +3,27 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Methodology}
+The project with be executed in the following sequence:
+\begin{enumerate}[label=\roman*.]
+	\item Simulate standard \gls{OFDM} on MATLAB over an \gls{AWGN} channel.
+	\item Obtain average \gls{PAPR} performance of the simulated system.
+	\item Simulate the \gls{OFDM} system over a Rayleigh fading channel.
+	\item Simulate the \gls{OFDM} system over a Rician fading channel.
+	\item Obtain \gls{BER} performance of all simulated systems.
+	\item Use MATLAB's regression tools to derive an expression for the \gls{BER} curves generated.
+\end{enumerate}
+
+\section{\gls{OFDM} Simulation}
+\subsection{\gls{OFDM} Transmitter}
+\begin{figure}[htpb!]
+	\centerline{\resizebox{15cm}{!}{\input{Graphics/OFDM_T_BLK.pdf_tex}}}
+	\caption{\gls{OFDM} transmitter implementation}
+	\label{fig:ofdm_t_meth}
+\end{figure}
+
+\subsection{\gls{OFDM} Receiver}
+\begin{figure}[htpb!]
+	\centerline{\resizebox{15cm}{!}{\input{Graphics/OFDM_R_BLK.pdf_tex}}}
+	\caption{\gls{OFDM} receiver implementation}
+	\label{fig:ofdm_r_meth}
+\end{figure}
