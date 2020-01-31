@@ -1,6 +1,6 @@
 %% Creator: Inkscape inkscape 0.92.4, www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
-%% Accompanies image file 'Graphics/ofdm.pdf' (pdf, eps, ps)
+%% Accompanies image file 'Graphics/OFDM_CH_RAYL_BLK.pdf' (pdf, eps, ps)
 %%
 %% To include the image in your LaTeX document, write
 %%   \input{<filename>.pdf_tex}
@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{454.11023622bp}%
+    \setlength{\unitlength}{482.45669291bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,11 +50,15 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.46941323)%
+  \begin{picture}(1,0.29494712)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{Graphics/ofdm.pdf}}%
-    \put(0.63254737,0.13421431){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Saved Bandwidth\end{tabular}}}}%
-    \put(0.741217,0.00364908){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Frequency\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{Graphics/OFDM_CH_RAYL_BLK.pdf}}%
+    \put(0.5239027,0.05620566){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.31868145\unitlength}\centering \gls{AWGN}\end{minipage}}}%
+    \put(-0.06270673,0.18792887){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.31868145\unitlength}\centering Transmitted\\ Signal\end{minipage}}}%
+    \put(0.75772867,0.18792887){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.31868145\unitlength}\centering Received\\ Signal\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{Graphics/OFDM_CH_RAYL_BLK.pdf}}%
+    \put(0.32693135,0.18653504){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.17907946\unitlength}\centering Rayleigh\\ Fading\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{Graphics/OFDM_CH_RAYL_BLK.pdf}}%
   \end{picture}%
 \endgroup%

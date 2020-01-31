@@ -18,3 +18,4 @@ proposal.toc
 Boneyard/
 Graphics/Diagrams/Oven/
 Graphics/Diagrams/Graphs/*.pdf*
+*.log
