@@ -3,15 +3,29 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Background Information}
-In digital communication, information is expressed as bits which are grouped into \gls{symbol}s. Symbol period must be greater than delay time so as to avoid \gls{ISI}. As data rate is inversely proportional to symbol period, longer symbol periods translate to low data rates and diminished communication efficiency. In an \gls{SCM} system, a critical balance between symbol period and data rate must be found. The designer must compromise data rate to mitigate against \gls{ISI}.
+Communication in the world at present is widely used in such different ways such that it is very easy to overlook a great number of its aspects \cite{hayk}. Research on existing communication technologies and invention of new technologies has brought about many variations in existing standards and rise of new standards to the point that it is hard to keep track of various facets of communication systems. Thus, for any communication system to be considered for implementation, it must be able have an edge over other existing systems hence the need for performance analysis on different communication systems. Performance is a key aspect that needs to be evaluated.  The process of analysis should be thorough.%therefore be simple, convenient and economical in application.
 
-In an \gls{MCM} communication system, however, the total available bandwidth is divided into sub-bands over which multiple carriers can transmit in parallel. Closer placement of said sub-carriers in the spectrum facilitates achievement of an overall high data rate. Nevertheless, \gls{ICI} will occur when the spacing between subsequent carriers is too small. In \gls{FDM}, guard bands are placed between adjacent carriers, resulting in lower spectral efficiency and consequent reduced data rate.
+In digital communication, information is expressed as bits\cite{ofdm_intro} which are grouped into \gls{symbol}s. Symbol period must be greater than delay time so as to avoid \gls{ISI} according to Nyquist criterion for \gls{ISI} avoidance\cite{ofdm_intro}. As data rate is inversely proportional to symbol period, longer symbol periods translate to low data rates and diminished communication efficiency. In an \gls{SCM} system, a critical balance between symbol period and data rate must be found. The designer must compromise data rate to mitigate against \gls{ISI}. \gls{BER} is a central measure of a digital communication system's performance.
 
-\gls{OFDM} is an \gls{MCM} scheme that solves both the \gls{ISI} problem pertinent to \gls{SCM} and the \gls{ICI} problem inherent to \gls{MCM}. \gls{OFDM} uses a large number of low data rate carriers to accomplish a composite high data rate communication system. \gls{orthogonal}ity allows carrier overlap without \gls{ICI}. As each carrier has a low data rate, \gls{ISI} is greatly diminished.
+In a \gls{MCM} communication system, the total available bandwidth is divided into sub-bands over which multiple carriers can transmit in parallel. Closer placement of said sub-carriers in the spectrum facilitates achievement of an overall high data rate. Nevertheless, \gls{ICI} will occur when the spacing between subsequent carriers is too small. In \gls{FDM}, guard bands are placed between adjacent carriers, resulting in lower spectral efficiency and consequently, reduced data rate.
 
-Adoption of \gls{OFDM} in mainstream communication took hold in the 21st century while the technology had already been patented in the 60s. Interest was strong but implementation techniques were costly. However, with software implementation of \gls{FFT} and \gls{IFFT} algorithms, large scale implementation became viable and is now the preferred modulation technique in a world limited to a set spectrum budget.
+\gls{OFDM} is an \gls{MCM} scheme that solves both the \gls{ISI} problem pertinent to \gls{SCM} and the \gls{ICI} problem inherent in \gls{MCM}\cite{ofdm_intro}. \gls{OFDM} uses a large number of low data rate carriers to accomplish a composite high data rate communication system. The carriers' \gls{orthogonal}ity allows carrier overlap without \gls{ICI}. As each carrier has a low data rate, \gls{ISI} is greatly diminished.
 
-\gls{OFDM} \gls{symbol}s are generated based on the modulation technique used, for instance \gls{MPSK} and \gls{QAM} by modulating a carrier.
+Adoption of \gls{OFDM} in mainstream communication took hold in the 21st century whereas the technology had already been patented in 1966 by Chang of Bell Labs\cite{history_ofdm}. Interest was strong but implementation techniques were costly. However, with software implementation of \gls{FFT} and \gls{IFFT} algorithms, alongside near-exponential increase in computational power thanks to Moore's Law, large scale implementation became viable. Presently, \gls{OFDM} is the preferred modulation technique in a world limited to a set spectrum budget.
 
+\gls{OFDM} \gls{symbol}s are generated based on the modulation technique used, for instance \gls{MPSK} and \gls{QAM}. An \gls{IFFT} operation converts the (often complex) symbols in the \gls{IFFT} bins to samples of a sinusoid of a frequency that is orthogonal to other frequency \gls{subcarrier} output by the \gls{IFFT}. To the resultant sampled sinusoid, a cyclic extension is appended to further mitigate \gls{ISI}. A cyclic extension allows the demodulator to still obtain correct information for the entire symbol period even with the uncertainty of up to the length of a cyclic extension. This ensures that the result of \gls{FFT} still gives the correct symbols at the receiver.
+
+\subsection{\gls{OFDM} System Parameters}
+Some of the parameters of an \gls{OFDM} signal include:
+\begin{itemize}
+	\item \gls{ICI} power.
+	\item Size of the \gls{DFT}.
+	\item \gls{OFDM} symbol duration or \gls{subcarrier} spacing.
+\end{itemize}
+\gls{DFT} size and \gls{subcarrier} spacing are related to the performance and complexity of the \gls{OFDM} system\cite{wireless_design}. To find suitable \gls{OFDM} parameters, coherence time($T_c$) and coherence bandwidth($B_c$) are considered. To ensure \gls{OFDM} symbols experience slow and flat fading, the following must be satisfied:
+\begin{align*}
+T_s &< T_c\\
+B_s &< B_c
+\end{align*}
 % See about the frames affair.
 
