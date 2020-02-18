@@ -1,6 +1,7 @@
-\documentclass[a4paper,12pt]{report}
+\documentclass[a4paper, 11pt]{report}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage{mathptmx}
 \usepackage[acronym]{glossaries}
 \makeglossaries
 \usepackage{graphicx}
@@ -17,8 +18,10 @@
 \usepackage[symbol]{footmisc}
 \usepackage{perpage}
 \MakePerPage{footnote}
-\author{Manyara, Peter}
-\usepackage[pdfauthor=Peter\ Manyara\ \&\ Rosemary\ Litunya, pdftitle=Final\ Project\ Proposal, pdfsubject=Simulation\ of\ BER\ for\ OFDM\ Variant\ in\ a\ Fading\ Channel]{hyperref}
+\usepackage{setspace}
+\usepackage{siunitx}
+\linespread{1.5}
+\usepackage[pdfauthor=Peter\ Manyara\ \&\ Rosemary\ Litunya, pdftitle=Final\ Project\ Proposal, pdfsubject=Simulation\ of\ BER\ for\ OFDM\ Variant\ in\ a\ Fading\ Channel, hidelinks]{hyperref}
 
 \input{Chapters/glossary.tex}
 \begin{document}
@@ -34,8 +37,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagenumbering{roman}
 \input{Chapters/decl.tex}
-\label{cap:decl}
-\addcontentsline{toc}{chapter}{\nameref{cap:decl}}
+
 
 %%-------------------------------%%
 
@@ -108,6 +110,20 @@
 
 %%-------------------------------------%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% - - - T I M E   P L A N - - - %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Chapters/timeplan.tex}
+
+%%-------------------------------------%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% - - - B U D G E T - - - %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Chapters/budget.tex}
+
+%%-------------------------------------%%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% - - - B I B L I O G R A P H Y - - - %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -122,8 +138,9 @@
 %% - - - G L O S S A R Y - - - %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagenumbering{Alph}
-\addcontentsline{toc}{chapter}{Glossary}
+\addcontentsline{toc}{chapter}{\gls{glossary}}
 \printglossary
+
 %%---------------------------------------%%
 
 \end{document}
