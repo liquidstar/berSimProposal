@@ -1,75 +1,78 @@
 \section{Communication Link Parameters}
- Any communication Link has three basic elements i.e the transmitter, channel and receiver. Thetransmitter converts a message signal from a source into a form suitable fortransmission over an imperfect channel that has noise and interfering signals \cite{hayk}. This leads to areceived signal that is a manipulated version of the transmitted signal.
+The dominant consideration in the design of digital communication systems is their ability to adequately out-perform certain marginal metrics over a non-ideal channel\cite{hayk}. These metrics of System Performance are:
+
+%----------------------------------
+%	PAPR Theoretical coverage
+%----------------------------------
+\subsection{Peak to Average Power Ratio (\gls{PAPR})}
+Multi carrier modulations like \gls{OFDM} exhibit large dynamic range because of the strong power fluctuations that can be quantified as \gls{PAPR}. \gls{PAPR} is the relation between maximum power of a sample in a given \gls{OFDM} transmit \gls{symbol} divided by the average power of that \gls{OFDM} \gls{symbol}\cite{french}. The \gls{OFDM} signal is a sum of $N$ independent complex random variables each of which can be considered a signal of a different carrier frequency. In the most extreme case, the different carriers may all line up in phase at some instance in time, producing an amplitude peak equal to the sum of amplitudes of the individual carriers.
+
+\gls{PAPR} of the transmitted \gls{OFDM} signal has large peaks that introduce a serious degradation in performance when the signal passes through a nonlinear \gls{HPA}. The non-linearity of \gls{HPA}s leads to in-band distortion which increases \gls{BER}, and out-of-band radiation, which causes adjacent channel interference\cite{prob}. The subcarriers are added constructively to form large peaks. High peak power requires an expensive \gls{HPA}, \gls{ADC} and \gls{DAC}. Peaks are distorted non-linearly due to amplifier imperfection in \gls{HPA}s. 
+
+If the amplifier operates in its non-linear region, out of band and in-band spectrum radiations are produced which appears as adjacent channel interference\cite{gaurav}. Moreover, without large power back-offs, out of band power cannot be kept within specified limits, leading to inefficient amplification and expensive transmitter amplifiers.
  
- The dominant consideration in the design of digital communication systems is their ability to adequately out-perform certain marginal metrics over a non-ideal channel. These metrics of System Performance are:
+The problem of high peak amplitude excursions is most severe at the transmitter output whereby to transmit the peaks sans clipping, not only must the \gls{DAC} have enough bits to accommodate the peaks, but the power amplifier must as well remain linear over an amplitude range that includes the peak amplitudes\cite{ofdm_intro}.
 
-\subsection*{Peak to Average Power Ratio}
-Multi carrier modulations like OFDM exhibit large dynamic range because of the strong power fluctuations that can be quantified as Peak to Average power ratio (PAPR) \cite{french}. PAPR is the relation between maximum power of a sample in a given OFDM transmit symbol divided by the average power of that OFDM symbol. The OFDM signal is a sum of $N$ independent complex random variables each of which can be considered a signal of a different carrier frequency. In the most extreme case, the different carriers may all line up in phase at some instance in time, producing an amplitude peak equal to the sum of amplitudes of the individual carriers.
-
-PAPR of the transmitted OFDM signal has large peaks that introduce a serious degradation in performance when the signal passes through a nonlinear High-Power-Amplifier (HPA). The non-linearity of HPA leads to in-band distortion which increases Bit Error Rate (BER), and out-of-band radiation, which causes adjacent channel interference\cite{prob}.
-The subcarriers are added constructively to form large peaks. High peak power requires High Power Amplifiers (HPA), A/D and D/A converters. Peaks are distorted nonlinearly due to amplifier imperfection in HPA. 
-
-Peaks tend to get distorted non-linearly due to imperfections in the High Power Amplifier. If the amplifier operates in its non-linear region, out of band and in-band spectrum radiations are produced which appears as adjacent channel interference\cite{gaurav}. Moreover, without large power back-offs, out of band power cannot be kept within specified limits, leading to inefficient amplification and expensive transmitter amplifiers.
- 
-According to Reference \cite[Ch.4, pp.69]{ofdm_intro}, the problem of high peak amplitude excursions is most severe at the transmitter output whereby to transmit the peaks sans clipping, not only must the D/A converter have enough bits to accommodate the peaks, but the power amplifier must as well remain linear over an amplitude range that includes the peak amplitudes.
-
-From Reference \cite{papr_paper}, for the OFDM system with $N$ carriers, the baseband with normalized power from an Inverse Fast Fourier Transform(IFFT) operation is:
+From \cite{papr_paper}, for the \gls{OFDM} system with $N$ carriers, the baseband with normalized power from an \gls{IFFT} operation is:
 
 $$x(t) = \frac{1}{\sqrt{N}}\sum_{k=0}^{N-1}X_k\exp (jk\Delta ft)$$
 $\Delta f$ is subcarrier spacing and $X_k$ is the spectrum of the $k$th sub-carrier.
-From this, the PAPR of an OFDM signal can be derived as:
+From this, the \gls{PAPR} of an \gls{OFDM} signal can be derived as:
 $$\text{PAPR} = \frac{\left(\left|x(t)\right|^2\right)_{\max}}{E\left\{\left|x(t)\right|^2\right\}}$$
 
-\subsection*{Average Signal-to-Noise Ratio}
-Signal-to-Noise Ratio(SNR) is defined as the ratio of the power of a signal to the power of background noise as measured at equivalent points in a system and within the same bandwidth.\cite{dcommoha}
+\subsection{Average Signal-to-Noise Ratio (\gls{SNR})}
+\gls{SNR} is defined as the ratio of the power of a signal to the power of background noise as measured at equivalent points in a system and within the same bandwidth.\cite{dcommoha}
 $$SNR = \frac{P_{signal}}{P_{noise}}$$
 
-For an effective transmission technology, retrieval of bit streams from a received waveform  should be as error free as possible, despite of non ideality of the communication system. This is done by achieving the best possible SNR free from anyintersymbol interference (ISI).The SNR candegrade through losses and/or increase in noise/interfering signal power.Losses occur when a portion of the signal is absorbed, diverted, scattered, or reflected along its route to
-the intended receiver.
+For an effective transmission technology, retrieval of bit streams from a received waveform  should be as error free as possible, despite non-idealities of the communication system. This is done by achieving the best possible \gls{SNR} free from any \gls{ISI}. The \gls{SNR} can degrade through losses and/or increase in noise/interfering signal power. Losses occur when a portion of the signal is absorbed, diverted, scattered, or reflected along its route to the intended receiver.
 
 According to \cite{AWGN}, the primary causes for error-performance degradation is:
 \begin{itemize}
-	\item Effect of filtering at the transmitter, channel, and receiver. For a nonideal system transfer withISI.
+	\item Effect of filtering at the transmitter, channel, and receiver. For a nonideal system transfer with
+\gls{ISI}.
 	\item  Electrical noise and interference produced by a variety of sources, such as galaxy and
 	atmospheric noise, switching transients, intermodulation noise, as well as interfering signals
 	from other sources.
-	\end {itemize}
+\end{itemize}
 	
-In the context of a communication system subject to fading, the more appropriate measure is average SNR. This is the statistical averaging over the probability distribution of the fading. Mathematically, where $\gamma$ denotes instantaneous SNR, then
+In the context of a communication system subject to fading, the more appropriate measure is average \gls{SNR}. This is the statistical averaging over the probability distribution of the fading. Mathematically, where $\gamma$ denotes instantaneous \gls{SNR}, then
 $$\bar{\gamma} \triangleq \int_0^{\infty} \gamma P_{\gamma} \left(\gamma\right) d\gamma$$
-is the average SNR. $P_{\gamma} \left(\gamma\right)$ is the probability density function of $\gamma$.
+is the average \gls{SNR}. $P_{\gamma} \left(\gamma\right)$ is the probability density function of $\gamma$.
+\subsubsection{Outage probability}
+When the \gls{SNR} level at the receiver falls below a certain threshold value the system is said to be in outage. Correct detection of signal may not be possible at these low \gls{SNR} levels. This results in a large number of bits and therefore \gls{symbol}s being received in error making the system unreliable\cite{MIMO}.
 
-\subsection*{Outage Probability}
-When the SNR level at the receiver falls below a certain threshold value the system is said to be in outage. Correct detection of signal may not be possible at these low SNR levels.This results in a large number of bits/symbols received in error making thesystem unreliable.\cite{MIMO}
-
-Outage probability is defined as the probability that the instantaneous output SNR, $\gamma$, falls below a certain specified threshold $\gamma_{th}$.\cite{dcommoha} Mathematically expressed:
+Outage probability is defined as the probability that the instantaneous output \gls{SNR}, $\gamma$, falls below a certain specified threshold $\gamma_{th}$\cite{dcommoha}. Mathematically expressed:
 $$P_{out} = \int_0^{\gamma_{th}} P_{\gamma}\left(\gamma\right) d\gamma$$
 This is the cumulative distribution function of $\gamma$.
 
-\subsection*{Average Bit Error Probability}
-Defined as the probability that the reconstructed symbol at the receiver output differs from the transmitted binary symbol. It is also called \textit{Bit Error Rate(BER)}. This measure is the most revealing about the nature of the system's reliability and is most often illustrated in system performance evaluations. Considering a binary system, the presence of a bit error causes symbol $1$ to be mistaken for symbol $0$, orvice versa.\cite{hayk} 
+%-----------------------------
+% BEP (Needs connection to BER)
+%-----------------------------
+\subsection{Average Bit Error Probability}
+Defined as the probability that the reconstructed \gls{symbol} at the receiver output differs from the transmitted binary \gls{symbol}. It is also called \textit{\gls{BER}}. This measure is the most revealing about the nature of the system's reliability and is most often illustrated in system performance evaluations. Considering a binary system, the presence of a bit error causes \gls{symbol} $1$ to be mistaken for \gls{symbol} $0$, or
+vice versa.\cite{hayk} 
 
-The conditional (being on a fading channel) Bit Error Probability (BEP) is a non-linear function of instantaneous SNR. The nature of non-linearity being a function of the modulation and detection scheme being used.\cite{dcommoha}
+The conditional (being on a fading channel) Bit Error Probability (BEP) is a non-linear function of instantaneous \gls{SNR}. The nature of non-linearity being a function of the modulation and detection scheme being used.\cite{dcommoha}
 
 Supposing that the conditional BEP is of the form:
 $$P_b\left( E|\gamma\right) = C_1 \exp \left( -a_1\gamma\right)$$
-as would be for differentially coherent detection of Phase-Shift-Keying (PSK) or non-coherent detection of orthogonal Frequency-Shift-Keying(FSK). The average BEP can be written as:
+as would be for differentially coherent detection of \gls{PSK} or non-coherent detection of orthogonal \gls{FSK}. The average BEP can be written as:
 $$P_b\left( E|\gamma\right) \triangleq \int_0^{\infty} P_b\left( E|\gamma\right) p_{\gamma}d\gamma$$
 $$=\int_0^{\infty} C_1 \exp \left( -a_1\gamma\right) p_{\gamma}d\gamma$$
-The most probable number of bit errors is one given a symbol error. Since there are $log_2 M$ bits per
-symbol, the average probability of symbol error with $k$ as an integer is related to the BER as :
+The most probable number of bit errors is one given a \gls{symbol} error. Since there are $log_2 M$ bits per
+\gls{symbol}, the average probability of \gls{symbol} error with $k$ as an integer is related to the BER as :
 $$BER=\frac{2^{k-1}}{2^{k}-1}P_b$$
-Bit error ratio of a communication system can be calculated for each SNR values as:
+Bit error ratio of a communication system can be calculated for each \gls{SNR} values as:
 $$ =\frac{\textit{number  of  error  bits}}{\textit{number  of  transmit  bits}}$$
 
-\subsection*{Symbol Rate}
+\subsection{Symbol Rate}
 Also known as \textit{baud rate}, is the number of symbol changes or signaling events across the transmission medium per unit time using a digitally modulated signal.
 
-Symbols of various sizes that are quantized and referenced to an \textit{M-ary} alphabet setwith which each $n$ symbol represents one of the possible discrete amplitude levels.For an \textit{M-ary} system with a symbol alphabet containing $M$ statistically independent symbols and a symbol duration of $T$ seconds, $\frac{1}{T}$ is its symbol rate, expressed in \textit{bauds}\cite{hayk}.
+Symbols of various sizes that are quantized and referenced to an \textit{M-ary} alphabet set with which each $n$ \gls{symbol} represents one of the possible discrete amplitude levels. For an \textit{M-ary} system with a \gls{symbol} alphabet containing $M$ statistically independent \gls{symbol}s and a \gls{symbol} duration of $T$ seconds, $\frac{1}{T}$ is its \gls{symbol} rate, expressed in \textit{bauds}\cite{hayk}.
 
-For a communication system, instead of using a binary alphabet with $1$ bit of information per channel symbol period $M$ symbols isused permitting transmission of $k=log_{2}M$ bits during each symbol period.\textit{M-ary}symbols allows a $k$-fold increase in the data rate within the same bandwidth henceuse of \textit{M-ary} PSK reduces the required bandwidth by a factor $k$.\cite{AWGN}
+For a communication system, instead of using a binary alphabet with $1$ bit of information per channel \gls{symbol} period, $M$ \gls{symbol}s are used, permitting transmission of $k=log_{2}M$ bits during each \gls{symbol} period. \textit{M-ary} \gls{symbol}s allow a $k$-fold increase in the data rate within the same bandwidth hence their use reduces the required bandwidth by a factor $k$\cite{AWGN}.
 
-\subsection*{Channel Utilization}
+\subsection{Channel Utilization}
 This is defined as the rate of successful message delivery over a communication channel, also called \textit{throughput}.
 The meaningful metric of system performance out of channel utilization is \textit{maximum throughput} which is synonymous with digital bandwidth capacity.
 
@@ -77,37 +80,32 @@ This capacity according to \cite{hayk} is the maximum mutual information $I\left
 $$C = \underset{\left\{ p\left( x_j\right) \right\}}{\max} I\left( \mathscr{X;Y} \right)$$
 Measured in \textit{bits per transmission}.
 
-\subsection*{Spectral Characteristic}
-Bandwidth is a range of frequencies that can be accommodated within a channel and can be measured in Hertz. Communication and information theorems are based on the assumption of strictlybandlimited channels, which implies that no signal power is allowed outside the defined band.
-
-For all bandlimited spectra, the waveforms are not realizable, and for all realizable waveforms, theabsolute bandwidth is infinite. When the channel bandwidth is much greater than the pulse bandwidth,the spreading of the pulse will be slight. When the channel bandwidth is close to the signal bandwidth,the spreading will exceed a symbol duration and cause signal pulses to overlap. This overlapping is calledIntersymbol interference (ISI).\cite{AWGN}
-
-\subsection*{Spectral Efficiency}
+\subsection{Spectral Efficiency}
 Also called \textit{bandwidth efficiency}, defined as the ratio of data rate in bits per second to the effectively utilized bandwidth in \cite{hayk}.
 $$\rho = \frac{R_b}{B}\ bits/sec/Hz$$
 Where $\rho$ is spectral efficiency, $R_b$ is bit rate and $B$ is bandwidth.
 
-Spectral effective modulation techniques that maximize bandwidth efficiency and thus reduce spectralcongestion are used.\cite{AWGN}
+Spectral effective modulation techniques that maximize bandwidth efficiency and thus reduce spectral
+congestion are used.\cite{AWGN}
 
-\subsection*{Latency}
+\subsection{Latency}
 This is defined by \cite{latintel} as the number of clock cycles that are required for the execution core to complete the execution of all micro-ops that form an instruction.
 
-It is the time interval between source stimulation and destination symbol change primarily as a consequence of the limited velocity with which any transmission can propagate and delays due to data processing stages along the channel.
+It is the time interval between source stimulation and destination \gls{symbol} change primarily as a consequence of the limited velocity with which any transmission can propagate and delays due to data processing stages along the channel.
 The lower limit of latency is determined by the medium being used for communication. Latency caps the maximum rate of information transfer due to the inherent limit on the amount of information that can be in transit at any instance. 
 
-Symbolsynchronization between transmitter and receiver can be accomplished in one of several ways. In some
+Symbol synchronization between transmitter and receiver can be accomplished in one of several ways. In some
 communication systems the transmitter and receiver clocks are synchronized to a master clock, which
 provides a very precise timing signal. In this case, the receiver must estimate and compensate for the
-relative time delay between the transmitted and received signals. Another method for achieving symbol
-synchronization is for the transmitter to simultaneously transmit the clock frequency $\frac{1}{T}$ or a multiple of
-$\frac{1}{T}$ along with the information signal.\cite{Salehi}
+relative time delay between the transmitted and received signals. Another method for achieving \gls{symbol}
+synchronization is for the transmitter to simultaneously transmit the clock frequency $\frac{1}{T}$ or a multiple of $\frac{1}{T}$ along with the information signal.\cite{Salehi}
 
-\subsection*{Timing Jitter}
-The variation in periodicity of a signal from its target or true frequency otherwise known as jitter is arandom process. It is the deviation of the time instant at which a given event occurs, relative to a reference time frame, which can be chosen arbitrarily\cite{jitter}.  If there is a slight jitter in the position of a sample, the sampling is no longer uniform.
+\subsection{Timing Jitter}
+The variation in periodicity of a signal from its target or true frequency otherwise known as jitter is a
+random process. It is the deviation of the time instant at which a given event occurs, relative to a reference time frame, which can be chosen arbitrarily\cite{jitter}.  If there is a slight jitter in
+ the position of a sample, the sampling is no longer uniform.
 
  Jitter occurs because carriers are generated using physical devices that have some randomness associated with them. An undesirable characteristic  is caused by electromagnetic interference and cross-talk with carriers of other signals.
  
- Effects of the jitter is equivalent to frequency modulation (FM) of thebaseband signal. A low-level wideband spectral contribution
- is induced whose properties are very close to those of the quantizing noise. If the  jitter exhibits periodic components the periodic FM will induce low-level spectral lines in the data. Timing jitter can be controlled with very good power supply isolation and stable clock references.\cite{AWGN}
+Effects of the jitter is equivalent to frequency modulation (FM) of the baseband signal. A low-level wideband spectral contribution is induced whose properties are very close to those of the quantizing noise. If the  jitter exhibits periodic components the periodic FM will induce low-level spectral lines in the data. Timing jitter can be controlled with very good power supply isolation and stable clock references.\cite{AWGN}
  
-\pagebreak
