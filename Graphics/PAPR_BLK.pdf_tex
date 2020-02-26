@@ -1,6 +1,6 @@
 %% Creator: Inkscape inkscape 0.92.4, www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
-%% Accompanies image file 'Graphics/PAPR_BLK.pdf' (pdf, eps, ps)
+%% Accompanies image file 'PAPR_BLK.pdf' (pdf, eps, ps)
 %%
 %% To include the image in your LaTeX document, write
 %%   \input{<filename>.pdf_tex}
@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{284.03149606bp}%
+    \setlength{\unitlength}{283.46456693bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,15 +50,13 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.7005988)%
+  \begin{picture}(1,0.7)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{Graphics/PAPR_BLK.pdf}}%
-    \put(0.07639307,0.20114274){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.30418488\unitlength}\centering \gls{OFDM}\\ Transmitter\end{minipage}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=2]{Graphics/PAPR_BLK.pdf}}%
-    \put(0.61391031,0.17869803){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.30418488\unitlength}\centering Channel\end{minipage}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=3]{Graphics/PAPR_BLK.pdf}}%
-    \put(0.34459559,0.56659384){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.30418488\unitlength}\centering \gls{PAPR} calculation\end{minipage}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=4]{Graphics/PAPR_BLK.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{PAPR_BLK.pdf}}%
+    \put(0.07654585,0.20154503){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.30479325\unitlength}\centering \gls{OFDM}\\ Transmitter\end{minipage}}}%
+    \put(0.61513813,0.17905542){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.30479325\unitlength}\centering Channel\end{minipage}}}%
+    \put(0.34528478,0.56772702){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.30479325\unitlength}\centering \gls{PAPR} calculation\end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{PAPR_BLK.pdf}}%
   \end{picture}%
 \endgroup%

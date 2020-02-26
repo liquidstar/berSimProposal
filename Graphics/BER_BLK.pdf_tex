@@ -1,6 +1,6 @@
 %% Creator: Inkscape inkscape 0.92.4, www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
-%% Accompanies image file 'Graphics/BER_BLK.pdf' (pdf, eps, ps)
+%% Accompanies image file 'BER_BLK.pdf' (pdf, eps, ps)
 %%
 %% To include the image in your LaTeX document, write
 %%   \input{<filename>.pdf_tex}
@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{425.76377953bp}%
+    \setlength{\unitlength}{425.19685039bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,21 +50,15 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.40079893)%
+  \begin{picture}(1,0.4)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{Graphics/BER_BLK.pdf}}%
-    \put(0.07914908,0.32666593){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.20292493\unitlength}\centering Random\\ Data\end{minipage}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=2]{Graphics/BER_BLK.pdf}}%
-    \put(0.36892244,0.32666587){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.20292493\unitlength}\centering \gls{OFDM}\\ Transmitter\end{minipage}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=3]{Graphics/BER_BLK.pdf}}%
-    \put(0.66024363,0.31169276){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.20292493\unitlength}\centering Channel\end{minipage}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=4]{Graphics/BER_BLK.pdf}}%
-    \put(0.66024362,0.12408877){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.20292493\unitlength}\centering \gls{OFDM}\\ Receiver\end{minipage}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=5]{Graphics/BER_BLK.pdf}}%
-    \put(0.37065591,0.12408877){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.20292493\unitlength}\centering Received\\ Data\end{minipage}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=6]{Graphics/BER_BLK.pdf}}%
-    \put(0.07914907,0.12779949){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.20292493\unitlength}\centering \gls{BER}\\ Calculation\end{minipage}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=7]{Graphics/BER_BLK.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{BER_BLK.pdf}}%
+    \put(0.07925461,0.32710149){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.2031955\unitlength}\centering Random\\ Data\end{minipage}}}%
+    \put(0.36941434,0.32710142){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.2031955\unitlength}\centering \gls{OFDM}\\ Transmitter\end{minipage}}}%
+    \put(0.66112395,0.31210835){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.2031955\unitlength}\centering Channel\end{minipage}}}%
+    \put(0.66112395,0.12425421){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.2031955\unitlength}\centering \gls{OFDM}\\ Receiver\end{minipage}}}%
+    \put(0.37115012,0.12425421){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.2031955\unitlength}\centering Received\\ Data\end{minipage}}}%
+    \put(0.07925461,0.12796988){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.2031955\unitlength}\centering \gls{BER}\\ Calculation\end{minipage}}}%
   \end{picture}%
 \endgroup%
