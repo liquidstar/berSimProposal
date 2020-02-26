@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{454.11023622bp}%
+    \setlength{\unitlength}{487.5bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,11 +50,12 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.46941323)%
+  \begin{picture}(1,0.81538462)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{Graphics/ofdm.pdf}}%
-    \put(0.63254737,0.13421431){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Saved Bandwidth\end{tabular}}}}%
-    \put(0.741217,0.00364908){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Frequency\end{tabular}}}}%
+    \put(0.44843226,0.01430809){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Frequency\end{tabular}}}}%
+    \put(0.02799563,0.28738481){\color[rgb]{0.14901961,0.14901961,0.14901961}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Power Spectral Density\end{tabular}}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{Graphics/ofdm.pdf}}%
   \end{picture}%
 \endgroup%
