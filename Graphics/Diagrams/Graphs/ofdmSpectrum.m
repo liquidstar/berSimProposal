@@ -11,7 +11,7 @@ i=-bins;
 flimits = [-bins*3 bins*3];
 while (i<=bins)
     %if (i != 0)
-    y = sinc(f+1*i);
+    y = (sinc(f+3*i))^2;
     z+=y;
     fig=ezplot(y, flimits*2);set(fig, "linewidth", 1.5-1e-2*bins);
     %end

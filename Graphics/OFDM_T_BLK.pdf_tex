@@ -60,7 +60,7 @@
     \put(0.81204927,0.39959219){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13212651\unitlength}\centering \gls{IFFT} operation\end{minipage}}}%
     \put(0.55327983,0.40794057){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13212651\unitlength}\centering Addition of Cyclic Extension\end{minipage}}}%
     \put(0.30554254,0.40794057){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13212651\unitlength}\centering Parallel to Serial Conversion\end{minipage}}}%
-    \put(0.05780535,0.40794057){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13212651\unitlength}\centering \gls{D/A} converter\end{minipage}}}%
+    \put(0.05780535,0.40794057){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13212651\unitlength}\centering Digital-to-Analog converter\end{minipage}}}%
     \put(0.0647598,0.14113264){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13212651\unitlength}\centering \gls{RF} front end\end{minipage}}}%
     \put(0.38812161,0.11065595){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.33857417\unitlength}\centering Communication Channel\end{minipage}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{Graphics/OFDM_T_BLK.pdf}}%

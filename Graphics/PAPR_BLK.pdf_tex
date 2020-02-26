@@ -1,6 +1,6 @@
 %% Creator: Inkscape inkscape 0.92.4, www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
-%% Accompanies image file 'PAPR_BLK.pdf' (pdf, eps, ps)
+%% Accompanies image file 'Graphics/PAPR_BLK.pdf' (pdf, eps, ps)
 %%
 %% To include the image in your LaTeX document, write
 %%   \input{<filename>.pdf_tex}
@@ -53,10 +53,10 @@
   \begin{picture}(1,0.7)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{PAPR_BLK.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{Graphics/PAPR_BLK.pdf}}%
     \put(0.07654585,0.20154503){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.30479325\unitlength}\centering \gls{OFDM}\\ Transmitter\end{minipage}}}%
     \put(0.61513813,0.17905542){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.30479325\unitlength}\centering Channel\end{minipage}}}%
     \put(0.34528478,0.56772702){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.30479325\unitlength}\centering \gls{PAPR} calculation\end{minipage}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=2]{PAPR_BLK.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{Graphics/PAPR_BLK.pdf}}%
   \end{picture}%
 \endgroup%

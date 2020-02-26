@@ -80,9 +80,9 @@
     \put(0.94376097,0.19331826){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\left\{ a_k\right\}$\end{tabular}}}}%
     \put(0.19068585,0.0577813){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}${f_{IF}}^\prime = f_{IF} + 1/2T$\end{tabular}}}}%
     \put(0.3142218,0.35496778){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}LPF\end{tabular}}}}%
-    \put(0.40572293,0.35316039){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}A/D\end{tabular}}}}%
+    \put(0.40572293,0.35316039){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}ADC\end{tabular}}}}%
     \put(0.3142218,0.13626868){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}LPF\end{tabular}}}}%
-    \put(0.40572293,0.13446129){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}A/D\end{tabular}}}}%
+    \put(0.40572293,0.13446129){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}ADC\end{tabular}}}}%
     \put(0.63791132,0.22279378){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}FFT\end{tabular}}}}%
   \end{picture}%
 \endgroup%

@@ -15,33 +15,30 @@
 
 
 \subsection{History of OFDM}
-Multi-carrier modulation was first used for military High Frequency radios in the late 1950's and 1960's. Use of orthogonal frequencies for transmission first appears in a 1966 patent by Robert W.Chang of Bell Labs with a proposal to generate orthogonal signals using \gls{FFT} surfacing in 1969. The idea was to use parallel data streams and \gls{FDM}(Fig.\ref{Conv_fdm} as discussed by \cite{ofdm_intro}) with overlapping sub-channels. This was to avoid the use of high speed equalization and to combat impulsive noise, and multi-path distortion as well as to fully use the available bandwidth as illustrated in fig.\ref{Conv_ofdm}\cite{ofdm_intro}. The initial applications were in the military communications.
+Multi-carrier modulation was first used for military \gls{HF} radios in the late 1950's and 1960's. Use of orthogonal frequencies for transmission first appears in a 1966 patent by Robert W. Chang of Bell Labs\cite{history_ofdm} with a proposal to generate orthogonal signals using \gls{FFT} surfacing in 1969. The idea was to use parallel data streams and \gls{FDM} (figure \ref{Conv_fdm} as discussed by \cite{ofdm_intro}) with overlapping sub-channels. This was to avoid the use of high speed equalization, to combat impulsive noise and multi-path distortion as well as to fully use the available bandwidth as illustrated in figure \ref{Conv_ofdm}\cite{ofdm_intro}. The initial applications were in the military communications.
 
 \begin{figure}[h!]
 	\centerline{\resizebox{10cm}{!}{\input{Graphics/fdm.pdf_tex}}}
 	
-	\caption{Conventional Frequency Modulation (FDM) multi-carrier modulation technique}
+	\caption{Conventional \gls{FDM} \gls{MCM} technique}
 	\label{Conv_fdm}
 \end{figure}
 
 \begin{figure}[h!]
 	\centerline{\resizebox{10cm}{!}{\input{Graphics/ofdm.pdf_tex}}}
 	
-	\caption{Orthogonal Frequency Division Modulation (OFDM) multi-carrier modulation technique}
+	\caption{\gls{OFDM} \gls{MCM} technique}
 	\label{Conv_ofdm}
 \end{figure}
 
-Key aspects of \gls{OFDM} were proposed there after with cyclic prefix which is an important aspect of all practical \gls{OFDM} implementations being proposed in 1980. \gls{OFDM} began to be considered for practical wireless applications in mid-1980s. In 1987, Lassalle and
- Alard, based in France considered the use of \gls{OFDM} for
-radio broadcasting and noted the importance of combining
-\gls{FEC} with \gls{OFDM}. 
+Key aspects of \gls{OFDM} were proposed there after with cyclic prefix which is an important aspect of all practical \gls{OFDM} implementations being proposed in 1980. \gls{OFDM} began to be considered for practical wireless applications in mid-1980s. In 1987, Lassalle and Alard, based in France considered the use of \gls{OFDM} for radio broadcasting and noted the importance of combining \gls{FEC} with \gls{OFDM}\cite{history_ofdm}. 
 
-\gls{OFDM} application was pioneered by Cioffi and others at Stanford who showed its potential as a modulation technique for \gls{DSL} applications. In 1999, the first based \gls{OFDM} \gls{WLAN} standard 802.11a was developed. This was followed in succession by 802.11g, 802.11n and 802.16d although the most widely deployed \gls{WLAN} standard is still 802.11b, which uses \gls{DSSS}. Currently, \gls{OFDM} is the basis of many telecommunication standards.
+\gls{OFDM} application was pioneered by Cioffi and others at Stanford who showed its potential as a modulation technique for \gls{DSL} applications. In 1999, the first \gls{OFDM}-based \gls{WLAN} standard 802.11a was developed. This was followed in succession by 802.11g, 802.11n and 802.16d although the most widely deployed \gls{WLAN} standard is still 802.11b, which uses \gls{DSSS}. Currently, \gls{OFDM} is the basis of many telecommunication standards.
 
 \subsubsection{IEEE 802.11 OFDM}
-\gls{OFDM} has been adopted by many wireless standards such as IEEE 802.11. The IEEE 802.11 specification is a standard that defines set requirements for the physical layer and a medium access control layer. For high data rates, the standard provides two physical layers--- IEEE 802.11b for \SI{2.4}{\giga\hertz} operation and IEEE 802.11a for \SI{5}{\giga\hertz} operation\cite{802.11}. 802.11a is not inter-operable with 802.11b as they operate on separate bands, except if using equipment that has a dual band capability.
+\gls{OFDM} has been adopted by wireless communications standards such as IEEE 802.11. The IEEE 802.11 specification is a standard that defines set requirements for the physical layer and a medium access control layer. For high data rates, the standard provides two physical layers--- IEEE 802.11b for \SI{2.4}{\giga\hertz} operation and IEEE 802.11a for \SI{5}{\giga\hertz} operation\cite{802.11}. 802.11a is not inter-operable with 802.11b as they operate on separate bands, except if using equipment that has a dual band capability.
 
- The 802.11a standard uses the same core protocol as the original standard and uses a 52 sub-carrier \gls{OFDM} with a maximum raw data rate of \SI{54}{Mbps}. This yields a realistic throughput in the mid-\SI{20}{Mbps}. The total channel bandwidth is \SI{20}{\mega\hertz} with an occupied bandwidth of \SI{16.6}{\mega\hertz}. A single \gls{OFDM} symbol contains 52 sub-carriers; 48 are data sub-carriers and 4 are pilot sub-carriers. All data sub-carriers use the same modulation format within a given burst. However, the modulation format can vary from burst to burst. The possible data sub-carrier modulation formats are \gls{BPSK},\gls{QPSK}, 16\gls {QAM}, and 64 \gls{QAM}. \gls{BPSK} is used to modulate pilot sub-carriers with a known magnitude and phase. Each \gls{OFDM} sub-carrier carries a single modulated data symbol along with its magnitude and phase information. A summary of IEEE 802.11 standard is given in table \ref{table_802.11} according to \cite{IEEE}:
+The 802.11a standard uses the same core protocol as the original standard and uses a 52 sub-carrier \gls{OFDM} with a maximum raw data rate of \SI{54}{Mbps}. This yields a realistic throughput in the mid-\SI{20}{Mbps}. The total channel bandwidth is \SI{20}{\mega\hertz} with an occupied bandwidth of \SI{16.6}{\mega\hertz}. A single \gls{OFDM} symbol contains 52 sub-carriers; 48 are data sub-carriers and 4 are pilot sub-carriers. All data sub-carriers use the same modulation format within a given burst. However, the modulation format can vary from burst to burst. The possible data sub-carrier modulation formats are \gls{BPSK}, \gls{QPSK}, 16 \gls{QAM}, and 64 \gls{QAM}. \gls{BPSK} is used to modulate pilot sub-carriers with a known magnitude and phase. Each \gls{OFDM} sub-carrier carries a single modulated data symbol along with its magnitude and phase information. A summary of IEEE 802.11 standard is given in table \ref{table_802.11} according to \cite{IEEE}:
  
  \begin{table}[htbp!]
  	\begin{tabularx}{\textwidth} { 
@@ -79,9 +76,7 @@ radio broadcasting and noted the importance of combining
 %%	Exposition on the OFDM variants
 %%	-----------------------------------------
 \subsection{\gls{OFDM} Variants}
-\gls{OFDM} variants follow the basic format for \gls{OFDM} but have additional attributes or variations. They utilize the \gls{OFDM} concept of close spaced orthogonal carriers each carrying low data rate signals while during the demodulation phase the data is combined to provide the complete signal.
-Some \gls{OFDM} variants include:
-
+\gls{OFDM} variants follow the basic format for \gls{OFDM} but have additional attributes or variations. They utilize the \gls{OFDM} concept of closely spaced orthogonal carriers each carrying low data rate signals while during the demodulation phase the data is combined to provide the complete signal. Some \gls{OFDM} variants include:
 
 \subsubsection{\gls{COFDM}}
 A form of \gls{OFDM} where error correction coding is incorporated into the signal.
@@ -126,21 +121,23 @@ The final form of an OFDM signal can be baseband or bandpass signal. For wired s
 
 \subsubsection{Baseband OFDM Signal}
 Its general form is expressed as:
-$$s(t) = \sum_{i=0}^{N-1}s_i(t) = \sum_{i=0}^{N-1}A_i\cos\left( 2\pi f_it + \phi_i\right), 0\leq t\leq T$$
+\begin{align*}
+s(t) &= \sum_{i=0}^{N-1}s_i(t) = \sum_{i=0}^{N-1}A_i\cos\left( 2\pi f_it + \phi_i\right)&, 0\leq t\leq T
+\end{align*}
 
 $A_i$, $f_i$ and $\phi_i$ are the amplitude, frequency and phase of the $i$th \gls{subcarrier} and $N$ is the number of \gls{subcarrier}s. $T$ is the symbol period of the data. Depending on modulation \gls{ASK}, \gls{PSK} or \gls{FSK} $A_i$, $\phi_i$ or $f_i$ respectively are determined by data while the others remain constant.
 
 For the \gls{subcarrier}s to be \gls{orthogonal}, $f_i$ must be integer multiples of $1/2T$ and minimum frequency separation between \gls{subcarrier}s must be $1/T$. $f_i$ are usually chosen as integer multiples of $R_s = 1/T$ and are equally spaced in frequency by the same. Spacing can be reduced to $1/2T$ if modulation is \gls{ASK}\cite{fuqin}. For the rest of this exposition, the spacing used is $1/T$ which is \gls{orthogonal} regardless of modulation technique.
 
-Taking lowest \gls{subcarrier} freq to be $f_0$, then the \gls{subcarrier} frequencies are: $f_0, f_0+R_s, f_0+2R_s,\ldots , f_0 + (N-1)R_s$. In a practical \gls{OFDM} system $f_0$ isn't zero to avoid problems created by the DC offset of the \gls{D/A} converter. Use of $f_0 = 0$ doesn't invalidate theoretical results since the zero frequency \gls{subcarrier} is left unused\cite{fuqin}. Therefore, the \gls{subcarrier} frequencies can be taken to be:
+Taking lowest \gls{subcarrier} freq to be $f_0$, then the \gls{subcarrier} frequencies are: $f_0, f_0+R_s, f_0+2R_s,\ldots , f_0 + (N-1)R_s$. In a practical \gls{OFDM} system $f_0$ isn't zero to avoid problems created by the DC offset of the \gls{DAC}. Use of $f_0 = 0$ doesn't invalidate theoretical results since the zero frequency \gls{subcarrier} is left unused\cite{fuqin}. Therefore, the \gls{subcarrier} frequencies can be taken to be:
 \begin{align}
 	\label{f_alloc}
-	f_i = iR_s = \frac{i}{T}, i = 0,1,\ldots , N-1
+	f_i &= iR_s = \frac{i}{T}&, i = 0,1,\ldots , N-1
 \end{align}
 
 With these \gls{subcarrier} frequencies, \gls{orthogonal}ity can be verified by:\\
 \begin{align*}	%%	# Proof of orthogonality
-	\int_0^Ts_i(t)s_j(t)dt = \begin{cases}
+	\int_0^Ts_i(t)s_j(t)dt &= \begin{cases}
 	{A_0}^2T\cos^2\phi_0 &, i=j=0\\
 	\frac{1}{2}A_i^2T &, i=j\neq 0\\
 	0 &, i\neq j
@@ -148,13 +145,13 @@ With these \gls{subcarrier} frequencies, \gls{orthogonal}ity can be verified by:
 \end{align*}
 This is proof of \gls{orthogonal}ity between \gls{subcarrier}s\cite{ofdm_intro}. It holds for all values of $A_i$, $A_j$ and $\phi_i$, $\phi_j$ for the frequency allocation \eqref{f_alloc}.
 
-The frequency spectrum of the OFDM signal is characterized by its \gls{PSD}. Assuming data on each \gls{subcarrier} is independent from others, total \gls{PSD} is a superposition of the \gls{PSD}s of all \gls{subband} signals\cite{fuqin}:
+The frequency spectrum of the \gls{OFDM} signal is characterized by its \gls{PSD}. Assuming data on each \gls{subcarrier} is independent of others, total \gls{PSD} is a superposition of the \gls{PSD}s of all \gls{subband} signals\cite{fuqin}:
 $$S(f) = \sum_{i=0}^{N-1}S_i(f)$$
 
 $S_i(f)$ is the \gls{PSD} of the $i$th \gls{subband} signal $s_i(t)$. For $i\neq 0$, $s_i(t)$ is a linearly modulated signal. If the modulation is \gls{MASK} or \gls{QAM} with symmetrical constellation, the \gls{PSD} of the $i$th \gls{subband} signal is:
 \begin{align}
 \label{psd_cont}
-S_i(f) = \frac{1}{2}A_{avg}^2T\left[ \left(\frac{\sin \pi (f-f_i)T}{\pi (f-f_i)T}\right)^2 + \left(\frac{\sin \pi (-f-f_i)T}{\pi (-f-f_i)T}\right)^2\right], i\neq 0
+S_i(f) &= \frac{1}{2}A_{avg}^2T\left[ \left(\frac{\sin \pi (f-f_i)T}{\pi (f-f_i)T}\right)^2 + \left(\frac{\sin \pi (-f-f_i)T}{\pi (-f-f_i)T}\right)^2\right]&, i\neq 0
 \end{align}
 
 Where $A_{avg}^2 = 2\sigma_a^2$ for \gls{QAM} and $A_{avg}^2 = \sigma_a^2$ for \gls{MASK}. $\sigma_a^2$ is the amplitude variance of the \gls{$I$} or \gls{$Q$} channel signal of \gls{QAM} (only \gls{$I$} for MASK) over their signal constellation.
@@ -167,7 +164,7 @@ $$S_0(f) = \sigma_a^2T\left( sinc\ \pi (f)T\right)^2 = \frac{1}{2}A_{avg}^2T\lef
 Combining the 3 preceding equations and normalizing the \gls{PSD} by its maximum and showing only the positive frequency part:
 \begin{align}
 	\label{psd_gen}
-	S(f) = \sum_{i=0}^{N-1}\left( \frac{\sin\pi(f-f_i)T}{\pi(f-f_i)T}\right)^2 &, f\geq 0
+	S(f) &= \sum_{i=0}^{N-1}\left( \frac{\sin\pi(f-f_i)T}{\pi(f-f_i)T}\right)^2 &, f\geq 0
 \end{align}
 Each member of \gls{PSD} has the shape of a squared sinc function. The first \gls{PSD}'s null is at $(f-f_i)=1/T$. Separation between \gls{subcarrier}s is $1/T$, which means that the first null point coincides with the peak of the \gls{PSD}s of adjacent \gls{subband} signals.
 
@@ -222,12 +219,12 @@ The process of modulation in Fig.\ref{fig:anal_mod} is\cite{fuqin}:
 	\item Serial data bits $\{ a_k\}$ are converted by the $1:N$ serial to parallel converter to $N$ data streams.
 	\item In the mapper block, bits in each stream are grouped into k-tuples, each of which is mapped to a symbol, generally denoted by a complex number.
 	\begin{align*}
-	di &= A_i\exp (j\phi_i) = I_i + jQ_i,\ i=0,1,\ldots,N-1\\
+	di &= A_i\exp (j\phi_i) = I_i + jQ_i,& i=0,1,\ldots,N-1\\
 	I_i &= A_i\cos \phi_i\\
 	Q_i &= A_i\sin\phi_i\\
 	\end{align*}
-	\item $di$ is modulated into the $i$th subcarrier in the modulator. Each subchannel can have a different modulation. There are $N$ modulators and subcarrier frequencies. Each complete modulator comprises a subcarrier oscillator, multiplier(s) and an adder. A phase shifter is needed for quadrature modulations. Each modulator's adder may be omitted since its task is carried out by the final adder.
-	\item If a bandpass OFDM signal is desired, the adder in the modulator is followed by a cascade of an RF mixer with a reference signal of frequency $f_c^\prime = f_c - \frac{N-1}{2T}$ and a \gls{BPF} whose frequency response rejeccts the lower sideband of the mixer output. The output is a band pass OFDM signal with spectrum centered at $f_c$. 
+	\item $d_i$ is modulated into the $i$th subcarrier in the modulator. Each subchannel can have a different modulation. There are $N$ modulators and subcarrier frequencies. Each complete modulator comprises a subcarrier oscillator, multiplier(s) and an adder. A phase shifter is needed for quadrature modulations. Each modulator's adder may be omitted since its task is carried out by the final adder.
+	\item If a bandpass OFDM signal is desired, the adder in the modulator is followed by a cascade of an RF mixer with a reference signal of frequency $f_c^\prime = f_c - \frac{N-1}{2T}$ and a \gls{BPF} whose frequency response rejects the lower sideband of the mixer output. The output is a band pass \gls{OFDM} signal with spectrum centered at $f_c$. 
 \end{itemize}
 
 \paragraph{Receiver side}
@@ -295,15 +292,15 @@ Using a $2N$ point \gls{DFT} pair for an $N$ point data set is inefficient, so H
 \end{itemize}
 Thus the \gls{DFT} processor pair is only $N$-point but the speed is double that of the symbol rate. This scheme is perfectly realizable\cite{hirosaki}.
 
-Another method which doubles efficiency of the scheme in Hirosaki's method: Based on an $N$-point \gls{DFT} pair and $N$-branch PPN at the rate $F$ for the transmission of $2N$ complex symbols at the rate of $F/2$. This is equivalent to transmitting $N$ complex symbols with an $N$-point \gls{DFT} pair at symbol rate.
-\begin{itemize}
-	\item Shift the \gls{DFT} pair index range from $[0,N-1]$ to $[-N/2, -N/2-1]$. In so doing, an $N$-point \gls{DFT} pair will satisfy the Nyquist sampling rate.
-\end{itemize}
-
+%Another method which doubles efficiency of the scheme in Hirosaki's method: Based on an $N$-point \gls{DFT} pair and $N$-branch PPN at the rate $F$ for the transmission of $2N$ complex symbols at the rate of $F/2$. This is equivalent to transmitting $N$ complex symbols with an $N$-point \gls{DFT} pair at symbol rate.
+%\begin{itemize}
+%	\item Shift the \gls{DFT} pair index range from $[0,N-1]$ to $[-N/2, -N/2-1]$. In so doing, an $N$-point \gls{DFT} pair will satisfy the Nyquist sampling rate.
+%\end{itemize}
+%
 The \gls{IDFT}/\gls{DFT} pair can be replaced with:
 \begin{align*}
-s_n^\prime &= \frac{1}{N}\sum_{i=-\frac{N}{2}}^{\frac{N}{2}-1}d_i\exp\left( j2\pi\frac{in}{N}\right)&,\ n = -\frac{N}{2},-\frac{N}{2}+1,\ldots,\frac{N}{2}-1\\
-d_i &= \sum_{i=-\frac{N}{2}}^{\frac{N}{2}-1}s_n^\prime\exp\left( -j2\pi\frac{in}{N}\right)&,\ n = -\frac{N}{2},-\frac{N}{2}+1,\ldots,\frac{N}{2}-1\\
+s_n^\prime &= \frac{1}{N}\sum_{i=-\frac{N}{2}}^{\frac{N}{2}-1}d_i\exp\left( j2\pi\frac{in}{N}\right)&,\ n = \frac{N}{2},-\frac{N}{2}+1,\ldots,\frac{N}{2}-1\\
+d_i &= \sum_{i=-\frac{N}{2}}^{\frac{N}{2}-1}s_n^\prime\exp\left( -j2\pi\frac{in}{N}\right)&,\ n = \frac{N}{2},-\frac{N}{2}+1,\ldots,\frac{N}{2}-1\\
 \end{align*}
 
 Data $d_i$ remains the same except for an index shift and is recovered with little difference from that of the previous \gls{IDFT}/\gls{DFT} pair. The time domain signal samples are different, $s_n^\prime \neq s_n$.
@@ -335,7 +332,7 @@ The process that takes place in the modulator includes\cite{fuqin}:
 	\item Serial data $\{ a_k\}$ is converted to symbols  $\{ d_i\}_{-N/2}^{N/2-1}$ through a serial to parallel converter and bits-to-symbol mappers. Zeros for virtual carriers are added to form the data set. The new data set size is $N_s$.
 	\item The \gls{IFFT} block transforms $\{ d_i\}_{i=-N_s/2}^{N_s/2-1}$ into complex time domain signal samples $\{ s_n^\prime\}_{n=-N_s/2}^{N_s/2-1}$.
 	\item A parallel to serial block separates these complex samples into real and imaginary parts and multiplexes them into 2 data streams: real $\{ I_n\}_{n=-N_s/2}^{N_s/2-1}$ and imaginary $\{ Q_n\}_{n=-N_s/2}^{N_s/2-1}$.
-	\item Before being sent to the \gls{DAC} a cyclic extension is added to the $I$ and $Q$ channel samples as a prefix to avoid inter-symbol interference; and a time domain windowing function so as to reduce side lobes of the spectrum. Assuming perfect D-A conversion, the outputs of the $I$ and $Q$ channel D/A blocks are CT originals of the 2 sampled signals.
+	\item Before being sent to the \gls{DAC} a cyclic extension is added to the $I$ and $Q$ channel samples as a prefix to avoid inter-symbol interference; and a time domain windowing function so as to reduce side lobes of the spectrum. Assuming perfect D-A conversion, the outputs of the $I$ and $Q$ channel \gls{DAC} blocks are CT originals of the 2 sampled signals.
 	\item To move baseband signal to RF band, $I(t)$ and $Q(t)$ are quadrature modulated onto an \gls{IF} carrier of frequency $f_{IF}^\prime = f_{IF} + \frac{1}{2T}$. This shifts the baseband \gls{OFDM} signal to the \gls{IF} band centered at $f_{IF}$.
 	\item A second up-conversion stage (a multiplier plus a \gls{BPF} at $f_c$) shifts the \gls{IF} signal to \gls{RF}. The \gls{BPF} has a center freq $f_c$ and BW of $(N+1)/T$ to reject the 2nd term of center frequency $f_c-2f_{IF}$
 \end{itemize}

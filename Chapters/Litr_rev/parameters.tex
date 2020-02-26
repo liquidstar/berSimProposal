@@ -63,7 +63,7 @@ The most probable number of bit errors is one given a \gls{symbol} error. Since 
 \gls{symbol}, the average probability of \gls{symbol} error with $k$ as an integer is related to the BER as :
 $$BER=\frac{2^{k-1}}{2^{k}-1}P_b$$
 Bit error ratio of a communication system can be calculated for each \gls{SNR} values as:
-$$ =\frac{\textit{number  of  error  bits}}{\textit{number  of  transmit  bits}}$$
+$$ \gls{BER}=\frac{\text{number  of  error  bits}}{\text{number  of  transmit  bits}}$$
 
 \subsection{Symbol Rate}
 Also known as \textit{baud rate}, is the number of symbol changes or signaling events across the transmission medium per unit time using a digitally modulated signal.
@@ -100,12 +100,12 @@ provides a very precise timing signal. In this case, the receiver must estimate 
 relative time delay between the transmitted and received signals. Another method for achieving \gls{symbol}
 synchronization is for the transmitter to simultaneously transmit the clock frequency $\frac{1}{T}$ or a multiple of $\frac{1}{T}$ along with the information signal.\cite{Salehi}
 
-\subsection{Timing Jitter}
-The variation in periodicity of a signal from its target or true frequency otherwise known as jitter is a
-random process. It is the deviation of the time instant at which a given event occurs, relative to a reference time frame, which can be chosen arbitrarily\cite{jitter}.  If there is a slight jitter in
- the position of a sample, the sampling is no longer uniform.
-
- Jitter occurs because carriers are generated using physical devices that have some randomness associated with them. An undesirable characteristic  is caused by electromagnetic interference and cross-talk with carriers of other signals.
- 
-Effects of the jitter is equivalent to frequency modulation (FM) of the baseband signal. A low-level wideband spectral contribution is induced whose properties are very close to those of the quantizing noise. If the  jitter exhibits periodic components the periodic FM will induce low-level spectral lines in the data. Timing jitter can be controlled with very good power supply isolation and stable clock references.\cite{AWGN}
+%\subsection{Timing Jitter}
+%The variation in periodicity of a signal from its target or true frequency otherwise known as jitter is a
+%random process. It is the deviation of the time instant at which a given event occurs, relative to a reference time frame, which can be chosen arbitrarily\cite{jitter}.  If there is a slight jitter in
+% the position of a sample, the sampling is no longer uniform.
+%
+% Jitter occurs because carriers are generated using physical devices that have some randomness associated with them. An undesirable characteristic  is caused by electromagnetic interference and cross-talk with carriers of other signals.
+% 
+%Effects of the jitter is equivalent to frequency modulation (FM) of the baseband signal. A low-level wideband spectral contribution is induced whose properties are very close to those of the quantizing noise. If the  jitter exhibits periodic components the periodic FM will induce low-level spectral lines in the data. Timing jitter can be controlled with very good power supply isolation and stable clock references.\cite{AWGN}
  

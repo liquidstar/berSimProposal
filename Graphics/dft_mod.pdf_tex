@@ -56,9 +56,9 @@
     \put(0,0){\includegraphics[width=\unitlength,page=1]{Graphics/dft_mod.pdf}}%
     \put(0.10410214,0.27408813){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}S/P\\1:N\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{Graphics/dft_mod.pdf}}%
-    \put(0.60421459,0.36569694){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}D/A\end{tabular}}}}%
+    \put(0.60421459,0.36569694){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\gls{DAC}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{Graphics/dft_mod.pdf}}%
-    \put(0.60421459,0.0951448){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}D/A\end{tabular}}}}%
+    \put(0.60421459,0.0951448){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\gls{DAC}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{Graphics/dft_mod.pdf}}%
     \put(0.02431392,0.27330163){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Serial\\Data\end{tabular}}}}%
     \put(0.01779664,0.20592131){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\left\{ a_k\right\}$\end{tabular}}}}%

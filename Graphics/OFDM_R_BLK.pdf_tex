@@ -61,7 +61,7 @@
     \put(0.32483285,0.43262377){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13212651\unitlength}\centering \gls{FFT} operation\end{minipage}}}%
     \put(0.57805357,0.44097228){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13212651\unitlength}\centering Removal of Cyclic Extension\end{minipage}}}%
     \put(0.82579091,0.43271435){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13212651\unitlength}\centering Serial to Parallel Conversion\end{minipage}}}%
-    \put(0.82579072,0.69696738){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13212651\unitlength}\centering \gls{A/D} converter\end{minipage}}}%
+    \put(0.82579072,0.69696738){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13212651\unitlength}\centering Analogue-to-Digital converter\end{minipage}}}%
     \put(0.57675008,0.68615458){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13212651\unitlength}\centering \gls{RF} front end\end{minipage}}}%
     \put(0.03508632,0.6556779){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.33857417\unitlength}\centering Communication Channel\end{minipage}}}%
   \end{picture}%
