@@ -8,18 +8,18 @@ bins=input("Number of bins: ");
 figure('Position', [900 400 900 600]);
 clf;hold on;
 i=-bins;
-flimits = [-bins*3 bins*3];
+flimits = [-bins*1 bins*5];
 while (i<=bins)
     %if (i != 0)
     y = (sinc(f+1*i))^2;
     z+=y;
-    fig=ezplot(y, flimits*2);set(fig, "linewidth", 2-1e-2*bins);
+    fig=ezplot(y, flimits*1.5);set(fig, "linewidth", 2-1e-2*bins);
     %end
     i+=1;
 end
 % Plot overall spectrum
-%tot = ezplot(z, flimits*2); set(tot, "linewidth", 4, "color", 'b');
-ylim([-0.4 1+bins/16]); xlim(flimits*2);
+tot = ezplot(z, flimits*2); set(tot, "linewidth", 4, "color", 'b');
+ylim([-0.4 1+bins/16]); xlim(flimits*1.5);
 ylabel("Magnitude");xlabel("Frequency");title("OFDM spectrum");grid on;
 
 
