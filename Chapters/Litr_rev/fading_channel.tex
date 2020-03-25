@@ -146,7 +146,7 @@ Where
 $$\gamma_b = z^2E_b/N_0$$
 is the \gls{SNR} with fading for a particular value of $z$. $P_e(\gamma_b)$ is symbol/bit error probability conditioned on a fixed $\gamma_b$ and $p(\gamma_b)$ is the \gls{PDF} of $\gamma_b$.
 
-To use the expression above, the demodulator must have a binary detector with a zero threshold eg. B\gls{PSK} and Q\gls{PSK}. (Q\gls{PSK} can use 2 binary detectors for the \gls{$I$} and \gls{$Q$} channels) In these cases, $\tilde{r}(t)$ can be directly sent to the demodulator and detection is optimal.
+To use the expression above, the demodulator must have a binary detector with a zero threshold eg. B\gls{PSK} and Q\gls{PSK}. (Q\gls{PSK} can use 2 binary detectors for the $I$ and $Q$ channels) In these cases, $\tilde{r}(t)$ can be directly sent to the demodulator and detection is optimal.
 
 But for modulations with multiple thresholds, $\tilde{r}(t)$ cannot be directly sent to the demodulator; \gls{BER} caused by wrong thresholds will be greater than noise-induced \gls{BER}. This is because the detector thresholds are designed for a fixed signal constellation $\left\{\tilde{s}_i(t)\right\}$. For each value of channel gain $z$, detector thresholds are redesigned so that $P_e(\gamma_b)$ can be obtained using the \gls{AWGN} formula and $P_e$ then evaluated using equation \ref{eqn:bit_prob}.
 

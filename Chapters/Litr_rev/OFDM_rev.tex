@@ -154,11 +154,11 @@ $S_i(f)$ is the \gls{PSD} of the $i$th \gls{subband} signal $s_i(t)$. For $i\neq
 S_i(f) &= \frac{1}{2}A_{avg}^2T\left[ \left(\frac{\sin \pi (f-f_i)T}{\pi (f-f_i)T}\right)^2 + \left(\frac{\sin \pi (-f-f_i)T}{\pi (-f-f_i)T}\right)^2\right]&, i\neq 0
 \end{align}
 
-Where $A_{avg}^2 = 2\sigma_a^2$ for \gls{QAM} and $A_{avg}^2 = \sigma_a^2$ for \gls{MASK}. $\sigma_a^2$ is the amplitude variance of the \gls{$I$} or \gls{$Q$} channel signal of \gls{QAM} (only \gls{$I$} for MASK) over their signal constellation.
+Where $A_{avg}^2 = 2\sigma_a^2$ for \gls{QAM} and $A_{avg}^2 = \sigma_a^2$ for \gls{MASK}. $\sigma_a^2$ is the amplitude variance of the $I$ or $Q$ channel signal of \gls{QAM} (only $I$ for MASK) over their signal constellation.
 
 If the modulation is \gls{MPSK}, the \gls{PSD} function is the same except the $A_{avg}$ is equal to the \gls{PSK} amplitude. If the modulation is unipolar \gls{MASK}, the \gls{PSD} will have a continuous part and discrete part. The continuous part is the same as \eqref{psd_cont} and discrete is a spectral line at $\pm f_i$ with strength $\left( m_A\right)^2$ where $m_A$ is the mean of the amplitudes.
 
-For $i=0$, $s_i(t) = A_i\cos\phi_i$ is a baseband signal which is equal to the \gls{$I$} channel data of \gls{QAM} or \gls{PSK}. Its \gls{PSD} is given by:
+For $i=0$, $s_i(t) = A_i\cos\phi_i$ is a baseband signal which is equal to the $I$ channel data of \gls{QAM} or \gls{PSK}. Its \gls{PSD} is given by:
 $$S_0(f) = \sigma_a^2T\left( sinc\ \pi (f)T\right)^2 = \frac{1}{2}A_{avg}^2T\left( sinc\ \pi (f)T\right)^2$$
 
 Combining the 3 preceding equations and normalizing the \gls{PSD} by its maximum and showing only the positive frequency part:
@@ -268,7 +268,7 @@ d_i &= \sum_{n=0}^{N-1}s_n\exp\left( -j2\pi\frac{in}{N}\right),&\ i=0,1,\ldots,N
 
 Thus, in conclusion, \gls{OFDM} modulation and demodulation can be implemented by a pair of \gls{IDFT} and \gls{DFT}. This simplifies it. \gls{IDFT} and \gls{DFT} can be calculated by their fast algorithms \gls{IFFT} and \gls{FFT} which reduce the number of computations to the order of $N\log N$\cite{ofdm_intro} (This is the state of present day implementations).
 
-In practice, the complex signal samples $\{s_n\}$ must be separated into a real component $(I)$ and imaginary component $(Q)$ channel first then each is converted to an analog signal before transmission for baseband transmission or further modulated onto \gls{HF} carriers for \gls{RF} band transmission. Distortion-less \gls{$I$} and \gls{$Q$} analog signals cannot be recovered through the \gls{DAC} due to inadequate signal sampling frequency. The $I$ and $Q$ channel components of $\{ s_n\}$ are:
+In practice, the complex signal samples $\{s_n\}$ must be separated into a real component $(I)$ and imaginary component $(Q)$ channel first then each is converted to an analog signal before transmission for baseband transmission or further modulated onto \gls{HF} carriers for \gls{RF} band transmission. Distortion-less $I$ and $Q$ analog signals cannot be recovered through the \gls{DAC} due to inadequate signal sampling frequency. The $I$ and $Q$ channel components of $\{ s_n\}$ are:
 \begin{align*}
 I_n &= \frac{1}{N}\sum_{i=0}^{N-1}A_i\cos\left( 2\pi\frac{in}{N}+\phi_i\right)&,\ n=0,1,\ldots,N-1\\
 Q_n &= \frac{1}{N}\sum_{i=0}^{N-1}A_i\sin\left( 2\pi\frac{in}{N}+\phi_i\right)&,\ n=0,1,\ldots,N-1\\

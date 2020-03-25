@@ -45,6 +45,23 @@ Outage probability is defined as the probability that the instantaneous output \
 $$P_{out} = \int_0^{\gamma_{th}} P_{\gamma}\left(\gamma\right) d\gamma$$
 This is the cumulative distribution function of $\gamma$.
 
+%---------------------------------
+%	System Complexity
+%---------------------------------
+\subsection{Complexity}
+We can classify as system complexity and computational complexity:
+\subsubsection*{System Complexity}
+It refers to the number of circuits implemented and the technical difficulty associated with the system. This reflects upon the cost of manufacturing which is a key consideration when selecting a communication system. 
+
+For communication systems,
+there are various grounds of making a complexity comparison. The demodulator is usually more complex than the modulator with the coherent demodulator being more complex since it requires carrier recovery. Sophisticated algorithms like Viterbi are requires which makes a system even more complex.\cite{fuqin}
+
+\subsubsection{Computational Complexity}
+Communication complexity aims at studying the number of communication bits that the participants of a communication system need to exchange to perform certain tasks.  It studies problems which model typical communication needs of computations and attempts to determine the bounds on the amount of communication between processors that these problems require. For a collection of communication problems f , we can show interesting lower bounds $L_f$ on their communication complexity under different
+types of protocols (one-way, multi-way, multi-party), that can be used to emulate different kind of
+algorithmic primitives.
+
+
 %-----------------------------
 % BEP (Needs connection to BER)
 %-----------------------------
